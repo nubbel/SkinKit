@@ -8,9 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "TableViewController.h"
-
-@interface SkinsTableViewController : TableViewController
+@interface SkinsTableViewController : UITableViewController
 
 - (IBAction)reset:(id)sender;
 

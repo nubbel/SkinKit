@@ -22,11 +22,13 @@
 
 
 @property (nonatomic, assign, getter = shouldAutomaticallyApplySkinForViews) BOOL automaticallyApplySkinForViews;
-@property (nonatomic, assign, getter = shouldAutomaticallyApplySkinForTableViews) BOOL automaticallyApplySkinForTableViews;
 
 - (void)applySkin;
+- (void)applySkinToGenericView:(UIView *)view;
 - (void)applySkinToView:(UIView *)view;
+- (void)applySkinToScrollView:(UIScrollView *)scrollView;
 - (void)applySkinToTableView:(UITableView *)tableView;
+- (void)applySkinToCollectionView:(UICollectionView *)collectionView;
 
 @end
 

@@ -28,6 +28,16 @@
     return instance;
 }
 
+- (id)init {
+    self = [super init];
+    
+    if (self) {
+        self.automaticallyApplySkinForViews = NO;
+    }
+    
+    return self;
+}
+
 #pragma mark - Apply skin
 - (void)applySkin {
     // skip
@@ -495,41 +505,55 @@
  }
  */
 
-- (void)applySkinToView:(UIView *)view {
-    if (![self.skin wasApplied]) {
-        return;
+- (void)applySkinToGenericView:(UIView *)view {
+    [self applySkinToView:view];
+    
+    if ([view isKindOfClass:[UIScrollView class]]) {
+        [self applySkinToScrollView:(UIScrollView *)view];
     }
     
-    UIColor *backgroundColor = [self.skin backgroundColor];
+    if ([view isKindOfClass:[UITableView class]]) {
+        [self applySkinToTableView:(UITableView *)view];
+    }
     
+    if ([view isKindOfClass:[UICollectionView class]]) {
+        [self applySkinToCollectionView:(UICollectionView *)view];
+    }
+}
+
+- (void)applySkinToView:(UIView *)view {
+    // set background color
+    UIColor *backgroundColor = [self.skin backgroundColor];
     if (backgroundColor) {
         [view setBackgroundColor:backgroundColor];
     }
 }
 
+- (void)applySkinToScrollView:(UIScrollView *)scrollView {
+    // set content insets
+    scrollView.contentInset = [self.skin scrollViewContentInsets];
+    scrollView.scrollIndicatorInsets = [self.skin scrollViewContentInsets];
+}
+
 - (void)applySkinToTableView:(UITableView *)tableView {
-    if (![self.skin wasApplied]) {
-        return;
-    }
-    
+    // set background image if specified
     UIImage *backgroundImage = [self.skin tableViewBackgroundImage];
-    
     if (backgroundImage) {
         UIImageView *backgroundView = [[UIImageView alloc] initWithImage:backgroundImage];
         [tableView setBackgroundView:backgroundView];
     }
     else {
+        // else set background color if specified
         UIColor *backgroundColor = [self.skin backgroundColor];
-        
         if (backgroundColor) {
             [tableView setBackgroundColor:backgroundColor];
             [tableView setBackgroundView:[[UIView alloc] initWithFrame:tableView.backgroundView.frame]];
         }
     }
-    
-    // content insets
-    tableView.contentInset = [self.skin scrollViewContentInsets];
-    tableView.scrollIndicatorInsets = [self.skin scrollViewContentInsets];
+}
+
+- (void)applySkinToCollectionView:(UICollectionView *)collectionView {
+    // TODO: add collection view skinning
 }
 
 #pragma mark - Custom accessors
@@ -539,14 +563,6 @@
     }
     
     return _automaticallyApplySkinForViews;
-}
-
-- (BOOL)shouldAutomaticallyApplySkinForTableViews {
-    if ([self.skin respondsToSelector:@selector(shouldAutomaticallyApplySkinForTableViews)]) {
-        return [self.skin shouldAutomaticallyApplySkinForTableViews];
-    }
-    
-    return _automaticallyApplySkinForTableViews;
 }
 
 #pragma mark - Private methods

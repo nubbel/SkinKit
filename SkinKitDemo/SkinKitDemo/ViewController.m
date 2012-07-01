@@ -27,7 +27,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [[SKSkinManager sharedSkinManager] applySkinToView:self.view];
+//    [[SKSkinManager sharedSkinManager] applySkinToView:self.view];
 }
 
 // New Autorotation support.

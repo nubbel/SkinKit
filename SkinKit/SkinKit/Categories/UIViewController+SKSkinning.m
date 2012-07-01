@@ -19,8 +19,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     SKSkinManager *manager = [SKSkinManager sharedSkinManager];
     
-    if ([manager shouldAutomaticallyApplySkinForViews] && ![self.view isKindOfClass:[UITableView class]]) {
-        [manager applySkinToView:self.view];
+    if ([manager shouldAutomaticallyApplySkinForViews]) {
+        [manager applySkinToGenericView:self.view];
     }
 }
 

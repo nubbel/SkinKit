@@ -23,12 +23,13 @@
     NSLog(@"User skin: %@", skinClass);
     
     SKSkinManager *skinManager = [SKSkinManager sharedSkinManager];
+    skinManager.automaticallyApplySkinForViews = YES;
 //    [skinManager setAutomaticallyApplySkinForViews:YES];
 //    [skinManager setAutomaticallyApplySkinForTableViews:YES];
     
     skinManager.skin = [[SKDefaultSkin alloc] init];
 //    skinManager.skin = [[TintedSkin alloc] init];
-//    skinManager.skin = [[LeatherSkin alloc] init];
+    skinManager.skin = [[LeatherSkin alloc] init];
 //    skinManager.skin = [[MetalSkin alloc] init];
 //    skinManager.skin = [[NSClassFromString(skinClass) alloc] init];
     

@@ -32,7 +32,6 @@
 #import "SKDefaultSkin.h"
 
 // categories
-#import "UITableView+SKSkinning.h"
-#import "UIViewController+SKSkinning.h"
 #import "UIImage+SKSkinning.h"
 #import "UIColor+SKSkinning.h"
+#import "UIViewController+SKSkinning.h"

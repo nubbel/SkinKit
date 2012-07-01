@@ -10,7 +10,6 @@
 		5D0D9D1D1597756800EFA2C4 /* MetalSkin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0D9D1C1597756800EFA2C4 /* MetalSkin.m */; };
 		5D2B878E1596081C00CFB35D /* libSkinKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2B878D1596081C00CFB35D /* libSkinKit.a */; };
 		5D2D9C1415991AFB0048C7AC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2D9C1315991AFB0048C7AC /* ViewController.m */; };
-		5D2D9C1815991B6C0048C7AC /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2D9C1715991B6C0048C7AC /* TableViewController.m */; };
 		5D6DCFBB159717BD0002C9BA /* TintedSkin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D6DCFBA159717BD0002C9BA /* TintedSkin.m */; };
 		5D74C4FE1595F05800714E22 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D74C4FD1595F05800714E22 /* UIKit.framework */; };
 		5D74C5001595F05800714E22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D74C4FF1595F05800714E22 /* Foundation.framework */; };
@@ -34,8 +33,6 @@
 		5D2B878D1596081C00CFB35D /* libSkinKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSkinKit.a; path = "../../../../../../../../../../Developer/Xcode/DerivedData/SkinKitWorkspace-fvtjbhfpxbofssbazthllfciehjj/Build/Products/Debug-iphoneos/libSkinKit.a"; sourceTree = "<group>"; };
 		5D2D9C1215991AFB0048C7AC /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		5D2D9C1315991AFB0048C7AC /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		5D2D9C1615991B6C0048C7AC /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
-		5D2D9C1715991B6C0048C7AC /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		5D6DCFB9159717BD0002C9BA /* TintedSkin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TintedSkin.h; path = Skins/TintedSkin.h; sourceTree = "<group>"; };
 		5D6DCFBA159717BD0002C9BA /* TintedSkin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TintedSkin.m; path = Skins/TintedSkin.m; sourceTree = "<group>"; };
 		5D74C4F91595F05800714E22 /* SkinKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkinKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,8 +126,6 @@
 				5D77475C1597BA3A00405EC5 /* SkinsTableViewController.m */,
 				5D2D9C1215991AFB0048C7AC /* ViewController.h */,
 				5D2D9C1315991AFB0048C7AC /* ViewController.m */,
-				5D2D9C1615991B6C0048C7AC /* TableViewController.h */,
-				5D2D9C1715991B6C0048C7AC /* TableViewController.m */,
 				5D2B87961596214300CFB35D /* Skins */,
 				5D74C5041595F05800714E22 /* Supporting Files */,
 			);
@@ -224,7 +219,6 @@
 				5D0D9D1D1597756800EFA2C4 /* MetalSkin.m in Sources */,
 				5D77475D1597BA3A00405EC5 /* SkinsTableViewController.m in Sources */,
 				5D2D9C1415991AFB0048C7AC /* ViewController.m in Sources */,
-				5D2D9C1815991B6C0048C7AC /* TableViewController.m in Sources */,
 				5DD68879159A22FE00BC08B4 /* LeatherSkin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

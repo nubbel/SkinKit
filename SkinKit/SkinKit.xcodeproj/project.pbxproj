@@ -25,11 +25,8 @@
 		5D74C4A11595EFF300714E22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D74C4A01595EFF300714E22 /* Foundation.framework */; };
 		5D74C4A81595EFF300714E22 /* SkinKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D74C4A71595EFF300714E22 /* SkinKit.m */; };
 		5D74C52C1595F65D00714E22 /* SKSkinManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D74C52B1595F65D00714E22 /* SKSkinManager.m */; };
-		5D77473D1597AEB600405EC5 /* UITableView+SKSkinning.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D77473B1597AEB600405EC5 /* UITableView+SKSkinning.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5D77473E1597AEB600405EC5 /* UITableView+SKSkinning.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D77473C1597AEB600405EC5 /* UITableView+SKSkinning.m */; };
 		5D7747451597B0F400405EC5 /* UIViewController+SKSkinning.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D7747431597B0F400405EC5 /* UIViewController+SKSkinning.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D7747461597B0F400405EC5 /* UIViewController+SKSkinning.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7747441597B0F400405EC5 /* UIViewController+SKSkinning.m */; };
-		5D77474B1597B31100405EC5 /* UITableView+SKSkinning.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D77473B1597AEB600405EC5 /* UITableView+SKSkinning.h */; };
 		5D77474C1597B31100405EC5 /* UIViewController+SKSkinning.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D7747431597B0F400405EC5 /* UIViewController+SKSkinning.h */; };
 		5D7747531597B4FD00405EC5 /* UIImage+SKSkinning.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D7747511597B4FD00405EC5 /* UIImage+SKSkinning.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D7747541597B4FD00405EC5 /* UIImage+SKSkinning.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7747521597B4FD00405EC5 /* UIImage+SKSkinning.m */; };
@@ -48,7 +45,6 @@
 			files = (
 				5D7747591597B71F00405EC5 /* UIImage+SKSkinning.h in CopyFiles */,
 				5D77475A1597B71F00405EC5 /* UIColor+SKSkinning.h in CopyFiles */,
-				5D77474B1597B31100405EC5 /* UITableView+SKSkinning.h in CopyFiles */,
 				5D77474C1597B31100405EC5 /* UIViewController+SKSkinning.h in CopyFiles */,
 				5D2B24B41597798900BEAB2B /* SkinKit.h in CopyFiles */,
 				5D2B24B51597798900BEAB2B /* SKSkinManager.h in CopyFiles */,
@@ -76,8 +72,6 @@
 		5D74C4A71595EFF300714E22 /* SkinKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkinKit.m; sourceTree = "<group>"; };
 		5D74C52A1595F65D00714E22 /* SKSkinManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSkinManager.h; sourceTree = "<group>"; };
 		5D74C52B1595F65D00714E22 /* SKSkinManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSkinManager.m; sourceTree = "<group>"; };
-		5D77473B1597AEB600405EC5 /* UITableView+SKSkinning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+SKSkinning.h"; sourceTree = "<group>"; };
-		5D77473C1597AEB600405EC5 /* UITableView+SKSkinning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+SKSkinning.m"; sourceTree = "<group>"; };
 		5D7747431597B0F400405EC5 /* UIViewController+SKSkinning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SKSkinning.h"; sourceTree = "<group>"; };
 		5D7747441597B0F400405EC5 /* UIViewController+SKSkinning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SKSkinning.m"; sourceTree = "<group>"; };
 		5D7747511597B4FD00405EC5 /* UIImage+SKSkinning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SKSkinning.h"; sourceTree = "<group>"; };
@@ -166,8 +160,6 @@
 				5D1C8A8215990AAA00330E1A /* NSObject+SKSkinning.m */,
 				5D7747431597B0F400405EC5 /* UIViewController+SKSkinning.h */,
 				5D7747441597B0F400405EC5 /* UIViewController+SKSkinning.m */,
-				5D77473B1597AEB600405EC5 /* UITableView+SKSkinning.h */,
-				5D77473C1597AEB600405EC5 /* UITableView+SKSkinning.m */,
 				5D7747511597B4FD00405EC5 /* UIImage+SKSkinning.h */,
 				5D7747521597B4FD00405EC5 /* UIImage+SKSkinning.m */,
 				5D7747551597B63400405EC5 /* UIColor+SKSkinning.h */,
@@ -185,7 +177,6 @@
 			files = (
 				5D6DD0C315973B280002C9BA /* SKDefaultSkin.h in Headers */,
 				5D2B87A5159671DC00CFB35D /* SkinKit.h in Headers */,
-				5D77473D1597AEB600405EC5 /* UITableView+SKSkinning.h in Headers */,
 				5D7747451597B0F400405EC5 /* UIViewController+SKSkinning.h in Headers */,
 				5D2B87A6159671DC00CFB35D /* SKSkinManager.h in Headers */,
 				5D2B87A7159671DC00CFB35D /* SKSkinDataSource.h in Headers */,
@@ -252,7 +243,6 @@
 				5D74C52C1595F65D00714E22 /* SKSkinManager.m in Sources */,
 				5D2B879B15966E1500CFB35D /* SKSkin.m in Sources */,
 				5D6DD0C115973A9C0002C9BA /* SKDefaultSkin.m in Sources */,
-				5D77473E1597AEB600405EC5 /* UITableView+SKSkinning.m in Sources */,
 				5D7747461597B0F400405EC5 /* UIViewController+SKSkinning.m in Sources */,
 				5D7747541597B4FD00405EC5 /* UIImage+SKSkinning.m in Sources */,
 				5D7747581597B63400405EC5 /* UIColor+SKSkinning.m in Sources */,

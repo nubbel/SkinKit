@@ -192,7 +192,7 @@
         <!--Table View Controller - Demo-->
         <scene sceneID="V7f-uS-Ndc">
             <objects>
-                <tableViewController id="tT4-uK-xRI" customClass="TableViewController" sceneMemberID="viewController">
+                <tableViewController id="tT4-uK-xRI" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="yam-M7-fTE">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -395,9 +395,6 @@
                 <relationship kind="action" name="reset:"/>
             </relationships>
         </class>
-        <class className="TableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TableViewController.h"/>
-        </class>
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
             <relationships>
@@ -411,6 +408,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="n7t-7l-X2J"/>
+        <segue reference="iAN-Yt-OXa"/>
     </inferredMetricsTieBreakers>
 </document>
