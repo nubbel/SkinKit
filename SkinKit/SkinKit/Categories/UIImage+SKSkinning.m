@@ -21,39 +21,41 @@
 //    return snapshot;
 //}
 
++ (CGAffineTransform)transformForOrientation:(UIInterfaceOrientation)orientation {
+    switch (orientation) {
+        case UIInterfaceOrientationLandscapeLeft:
+            return CGAffineTransformMakeRotation(-M_PI_2);
+            
+        case UIInterfaceOrientationLandscapeRight:
+            return CGAffineTransformMakeRotation(M_PI_2);
+            
+        case UIInterfaceOrientationPortraitUpsideDown:
+            return CGAffineTransformMakeRotation(M_PI);
+            
+        case UIInterfaceOrientationPortrait:
+        default:
+            return CGAffineTransformMakeRotation(0.0);
+    }
+}
+
 + (UIImage *)screenshot {
-    CGSize imageSize = [[UIScreen mainScreen] bounds].size;
-    UIGraphicsBeginImageContextWithOptions(imageSize, NO, 0.0);
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
     
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    
-    // Iterate over every window from back to front
-    for (UIWindow *window in [UIApplication sharedApplication].windows) {
-        if (window.screen == [UIScreen mainScreen]) {
-            // -renderInContext: renders in the coordinate space of the layer,
-            // so we must first apply the layer's geometry to the graphics context
-            CGContextSaveGState(context);
-            // Center the context around the window's anchor point
-            CGContextTranslateCTM(context, window.center.x, window.center.y);
-            // Apply the window's transform about the anchor point
-            CGContextConcatCTM(context, window.transform);
-            // Offset by the portion of the bounds left of and above the anchor point
-            CGContextTranslateCTM(context,
-                                  -window.bounds.size.width  * window.layer.anchorPoint.x,
-                                  -window.bounds.size.height * window.layer.anchorPoint.y);
-            
-            // Render the layer hierarchy to the current context
-            [window.layer renderInContext:context];
-            
-            // Restore the context
-            CGContextRestoreGState(context);
-        }
+    if (![window.screen isEqual:[UIScreen mainScreen]]) {
+        return nil;
     }
     
-    // Retrieve the screenshot image
+    // FIXME: support all interface orientations
+    CGSize size = window.bounds.size;
+    
+    UIGraphicsBeginImageContextWithOptions(size, NO, 0.0);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    [window.layer renderInContext:context];
+    
     UIImage *screenshot = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
+
     return screenshot;
 }
 
