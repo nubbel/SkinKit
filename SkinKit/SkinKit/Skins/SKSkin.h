@@ -6,7 +6,6 @@
 //  Copyright (c) 2012 Dominique d'Argent. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 
 #import "SKSkinDataSource.h"
 

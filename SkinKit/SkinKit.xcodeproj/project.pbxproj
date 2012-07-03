@@ -7,13 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5D1C8A8315990AAA00330E1A /* NSObject+SKSkinning.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D1C8A8115990AAA00330E1A /* NSObject+SKSkinning.h */; };
+		5D1C8A8315990AAA00330E1A /* NSObject+SKSkinning.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D1C8A8115990AAA00330E1A /* NSObject+SKSkinning.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D1C8A8415990AAA00330E1A /* NSObject+SKSkinning.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1C8A8215990AAA00330E1A /* NSObject+SKSkinning.m */; };
-		5D2B24B41597798900BEAB2B /* SkinKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D74C4A51595EFF300714E22 /* SkinKit.h */; };
-		5D2B24B51597798900BEAB2B /* SKSkinManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D74C52A1595F65D00714E22 /* SKSkinManager.h */; };
-		5D2B24B61597798900BEAB2B /* SKSkinDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D2B879D15966FA100CFB35D /* SKSkinDataSource.h */; };
-		5D2B24B71597798900BEAB2B /* SKSkin.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D2B879915966E1400CFB35D /* SKSkin.h */; };
-		5D2B24B81597798900BEAB2B /* SKDefaultSkin.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D6DD0BE15973A9C0002C9BA /* SKDefaultSkin.h */; };
 		5D2B8798159623ED00CFB35D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2B8797159623ED00CFB35D /* UIKit.framework */; };
 		5D2B879B15966E1500CFB35D /* SKSkin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2B879A15966E1500CFB35D /* SKSkin.m */; };
 		5D2B87A5159671DC00CFB35D /* SkinKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D74C4A51595EFF300714E22 /* SkinKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -27,34 +22,11 @@
 		5D74C52C1595F65D00714E22 /* SKSkinManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D74C52B1595F65D00714E22 /* SKSkinManager.m */; };
 		5D7747451597B0F400405EC5 /* UIViewController+SKSkinning.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D7747431597B0F400405EC5 /* UIViewController+SKSkinning.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D7747461597B0F400405EC5 /* UIViewController+SKSkinning.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7747441597B0F400405EC5 /* UIViewController+SKSkinning.m */; };
-		5D77474C1597B31100405EC5 /* UIViewController+SKSkinning.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D7747431597B0F400405EC5 /* UIViewController+SKSkinning.h */; };
 		5D7747531597B4FD00405EC5 /* UIImage+SKSkinning.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D7747511597B4FD00405EC5 /* UIImage+SKSkinning.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D7747541597B4FD00405EC5 /* UIImage+SKSkinning.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7747521597B4FD00405EC5 /* UIImage+SKSkinning.m */; };
 		5D7747571597B63400405EC5 /* UIColor+SKSkinning.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D7747551597B63400405EC5 /* UIColor+SKSkinning.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D7747581597B63400405EC5 /* UIColor+SKSkinning.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7747561597B63400405EC5 /* UIColor+SKSkinning.m */; };
-		5D7747591597B71F00405EC5 /* UIImage+SKSkinning.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D7747511597B4FD00405EC5 /* UIImage+SKSkinning.h */; };
-		5D77475A1597B71F00405EC5 /* UIColor+SKSkinning.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D7747551597B63400405EC5 /* UIColor+SKSkinning.h */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		5D74C49B1595EFF300714E22 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
-			dstPath = "include/${PRODUCT_NAME}";
-			dstSubfolderSpec = 16;
-			files = (
-				5D7747591597B71F00405EC5 /* UIImage+SKSkinning.h in CopyFiles */,
-				5D77475A1597B71F00405EC5 /* UIColor+SKSkinning.h in CopyFiles */,
-				5D77474C1597B31100405EC5 /* UIViewController+SKSkinning.h in CopyFiles */,
-				5D2B24B41597798900BEAB2B /* SkinKit.h in CopyFiles */,
-				5D2B24B51597798900BEAB2B /* SKSkinManager.h in CopyFiles */,
-				5D2B24B61597798900BEAB2B /* SKSkinDataSource.h in CopyFiles */,
-				5D2B24B71597798900BEAB2B /* SKSkin.h in CopyFiles */,
-				5D2B24B81597798900BEAB2B /* SKDefaultSkin.h in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5D1C8A8115990AAA00330E1A /* NSObject+SKSkinning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SKSkinning.h"; sourceTree = "<group>"; };
@@ -67,7 +39,6 @@
 		5D6DD0BF15973A9C0002C9BA /* SKDefaultSkin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKDefaultSkin.m; path = Skins/SKDefaultSkin.m; sourceTree = "<group>"; };
 		5D74C49D1595EFF300714E22 /* libSkinKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSkinKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D74C4A01595EFF300714E22 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		5D74C4A41595EFF300714E22 /* SkinKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SkinKit-Prefix.pch"; sourceTree = "<group>"; };
 		5D74C4A51595EFF300714E22 /* SkinKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkinKit.h; sourceTree = "<group>"; };
 		5D74C4A71595EFF300714E22 /* SkinKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkinKit.m; sourceTree = "<group>"; };
 		5D74C52A1595F65D00714E22 /* SKSkinManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSkinManager.h; sourceTree = "<group>"; };
@@ -148,7 +119,6 @@
 		5D74C4A31595EFF300714E22 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5D74C4A41595EFF300714E22 /* SkinKit-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -182,8 +152,8 @@
 				5D2B87A7159671DC00CFB35D /* SKSkinDataSource.h in Headers */,
 				5D7747531597B4FD00405EC5 /* UIImage+SKSkinning.h in Headers */,
 				5D7747571597B63400405EC5 /* UIColor+SKSkinning.h in Headers */,
-				5D2B87A8159671DC00CFB35D /* SKSkin.h in Headers */,
 				5D1C8A8315990AAA00330E1A /* NSObject+SKSkinning.h in Headers */,
+				5D2B87A8159671DC00CFB35D /* SKSkin.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,7 +166,6 @@
 			buildPhases = (
 				5D74C4991595EFF300714E22 /* Sources */,
 				5D74C49A1595EFF300714E22 /* Frameworks */,
-				5D74C49B1595EFF300714E22 /* CopyFiles */,
 				5D2B24B21597796800BEAB2B /* Headers */,
 			);
 			buildRules = (
@@ -299,10 +268,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/SkinKit.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SkinKit/SkinKit-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = $TARGET_NAME;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -311,10 +278,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/SkinKit.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SkinKit/SkinKit-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = $TARGET_NAME;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
