@@ -149,11 +149,17 @@
     return [self baseTintColor];
 }
 
-#pragma mark - Default text attributes
-- (UIColor *)titleTextColor {
+- (UIColor *)controlBaseTintColor {
+    return [self baseTintColor];
+}
+
+- (UIColor *)controlAccentTintColor {
     return [self accentTintColor];
 }
 
+- (UIColor *)controlThumbTintColor {
+    return [self controlBaseTintColor];
+}
 
 #pragma mark - Default images
 

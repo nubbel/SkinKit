@@ -11,9 +11,10 @@
 
 @protocol SKSkinDataSource <NSObject>
 
-//@optional
 @property (nonatomic, assign, getter = wasApplied) BOOL applied;
 
+
+@required
 
 #pragma mark - Base colors
 - (UIColor *)backgroundColor;
@@ -27,9 +28,9 @@
 - (UIImage *)shadowBottomImage;
 
 #pragma mark - Text attributes
-- (UIColor *)titleTextColor;
-- (UIColor *)titleTextShadowColor;
-- (CGSize)titleTextShadowOffset;
+- (NSDictionary *)navigationBarTitleTextAttributes;
+- (NSDictionary *)barButtonItemTitleTextAttributesForState:(UIControlState)state;
+- (NSDictionary *)tableViewHeaderFooterLabelTextAttributes;
 
 #pragma mark -
 #pragma mark - UI elements
@@ -65,10 +66,16 @@
 - (UIImage *)tableViewBackgroundImage;
 
 #pragma mark - Scroll view
-- (UIEdgeInsets)scrollViewContentInsets;
+- (NSValue *)scrollViewContentInsets; // NSValue wrapping a UIEdgeInsets struct
+
+#pragma mark - Controls
+- (UIColor *)controlBaseTintColor;
+- (UIColor *)controlAccentTintColor;
+- (UIColor *)controlThumbTintColor;
 
 @optional
 
+#pragma mark -
 #pragma mark - Behaviour
 - (BOOL)shouldAutomaticallyApplySkinForViews;
 - (BOOL)shouldAutomaticallyApplySkinForTableViews;

@@ -198,7 +198,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Controls" id="kma-dx-wQc">
+                            <tableViewSection headerTitle="Controls" footerTitle="Yo Bro" id="kma-dx-wQc">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="i0G-sM-hSA">
                                         <rect key="frame" x="0.0" y="46" width="320" height="45"/>
@@ -279,7 +279,7 @@
                             <tableViewSection headerTitle="SkinKit" id="XbI-AE-JfD">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="pgX-LS-Rm7" detailTextLabel="EjF-AP-Kjd" style="IBUITableViewCellStyleValue2" id="3U9-U1-lIe">
-                                        <rect key="frame" x="0.0" y="270" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="301" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="43"/>
@@ -304,7 +304,7 @@
                                         </view>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="4mB-lb-bWi" detailTextLabel="kzx-ES-fFb" style="IBUITableViewCellStyleValue2" id="UJu-h7-2hu">
-                                        <rect key="frame" x="0.0" y="315" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="346" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="300" height="43"/>
@@ -389,7 +389,7 @@
         </scene>
     </scenes>
     <classes>
-        <class className="SkinsTableViewController" superclassName="TableViewController">
+        <class className="SkinsTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SkinsTableViewController.h"/>
             <relationships>
                 <relationship kind="action" name="reset:"/>

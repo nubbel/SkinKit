@@ -15,8 +15,6 @@
 #define SKINKIT_AUTHOR  @"Dominique d'Argent"
 #define SKINKIT_BUNDLE_EXTENSION @"bundle"
 
-#define SKINKIT_CGSizeNull CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)
-
 @interface SkinKit : NSObject
 
 + (NSString *)version;

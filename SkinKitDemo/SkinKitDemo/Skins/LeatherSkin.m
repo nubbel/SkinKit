@@ -13,9 +13,9 @@
 
 @implementation LeatherSkin
 
-//- (NSString *)backgroundPatternImageName {
-//    return [[super backgroundPatternImageName] stringByAppendingString:@"Dark"];
-//}
+- (NSString *)backgroundPatternImageName {
+    return [[super backgroundPatternImageName] stringByAppendingString:@"Light"];
+}
 
 - (UIImage *)tabBarBackgroundImage {
     return [[super tabBarBackgroundImage]
@@ -50,8 +50,12 @@
             resizableImageWithCapInsets:UIEdgeInsetsMake(0.0, 13.0, 0.0, 5.0)];
 }
 
-- (UIEdgeInsets)scrollViewContentInsets {
-    return UIEdgeInsetsMake(10.0, 0.0, 10.0, 0.0);
+- (NSValue *)scrollViewContentInsets {
+    return [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(10.0, 0.0, 10.0, 0.0)];
+}
+
+- (NSDictionary *)tableViewHeaderFooterLabelTextAttributes {
+    return @{ UITextAttributeTextColor : [UIColor brownColor] };
 }
 
 @end

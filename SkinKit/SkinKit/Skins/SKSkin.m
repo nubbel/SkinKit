@@ -135,20 +135,18 @@
 }
 
 
-#pragma mark - Text shadows
-- (UIColor *)titleTextColor {
+#pragma mark - Text attributes
+- (NSDictionary *)navigationBarTitleTextAttributes {
     return nil;
 }
 
-- (UIColor *)titleTextShadowColor {
-    // TODO: if light text color use dark shadow and vice versa
+- (NSDictionary *)barButtonItemTitleTextAttributesForState:(UIControlState)state {
     return nil;
 }
 
-- (CGSize)titleTextShadowOffset {
-    return SKINKIT_CGSizeNull;
+- (NSDictionary *)tableViewHeaderFooterLabelTextAttributes {
+    return nil;
 }
-
 
 #pragma mark -
 #pragma mark - UI elements
@@ -225,8 +223,22 @@
 
 
 #pragma mark - Scroll view
-- (UIEdgeInsets)scrollViewContentInsets {
-    return UIEdgeInsetsZero;
+- (NSValue *)scrollViewContentInsets {
+    return nil;
+}
+
+
+#pragma mark - Controls
+- (UIColor *)controlBaseTintColor {
+    return nil;
+}
+
+- (UIColor *)controlAccentTintColor {
+    return nil;
+}
+
+- (UIColor *)controlThumbTintColor {
+    return nil;
 }
 
 @end

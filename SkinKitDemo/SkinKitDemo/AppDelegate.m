@@ -27,7 +27,7 @@
 //    [skinManager setAutomaticallyApplySkinForViews:YES];
 //    [skinManager setAutomaticallyApplySkinForTableViews:YES];
     
-    skinManager.skin = [[SKDefaultSkin alloc] init];
+//    skinManager.skin = [[SKDefaultSkin alloc] init];
 //    skinManager.skin = [[TintedSkin alloc] init];
     skinManager.skin = [[LeatherSkin alloc] init];
 //    skinManager.skin = [[MetalSkin alloc] init];

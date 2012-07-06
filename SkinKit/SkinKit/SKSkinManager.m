@@ -52,7 +52,6 @@
     
     ////////////////////////////////////////////////////////////////////////////
     
-    
     // controls
     [self applySkinToControls];
     
@@ -74,6 +73,9 @@
     // toolbar button item
     [self applySkinToToolbarButtonItem:nil];
     
+    // table view header/footer label
+    [self applySkinToTableViewHeaderFooterLabel:nil];
+    
     ////////////////////////////////////////////////////////////////////////////
     
     // set applied
@@ -86,8 +88,9 @@
 }
 
 - (void)applySkinToControls {
-    UIColor *baseTintColor = [self.skin baseTintColor];
-    UIColor *accentTintColor = [self.skin accentTintColor];
+    UIColor *baseTintColor   = [self.skin controlBaseTintColor];
+    UIColor *accentTintColor = [self.skin controlAccentTintColor];
+    UIColor *thumbTintColor  = [self.skin controlThumbTintColor];
     
     // control appearances
     UISwitch *switchAppearance = [UISwitch appearance];
@@ -98,17 +101,19 @@
     
     // base tint color
     [switchAppearance setTintColor:baseTintColor];
-    [switchAppearance setThumbTintColor:baseTintColor];
     [stepperAppearance setTintColor:baseTintColor];
     [segmentedControlAppearance setTintColor:baseTintColor];
     [sliderAppearance setMaximumTrackTintColor:baseTintColor];
-    [sliderAppearance setThumbTintColor:baseTintColor];
     [progressViewAppearance setTrackTintColor:baseTintColor];
     
-    // accent color
+    // accent tint color
     [switchAppearance setOnTintColor:accentTintColor];
     [sliderAppearance setMinimumTrackTintColor:accentTintColor];
     [progressViewAppearance setProgressTintColor:accentTintColor];
+    
+    // thumb tint color
+    [switchAppearance setThumbTintColor:thumbTintColor];
+    [sliderAppearance setThumbTintColor:thumbTintColor];
 }
 
 - (void)applySkinToTabBar:(UITabBar *)tabBarOrAppearance {
@@ -130,6 +135,7 @@
     
     [navigationBarOrAppearance setTintColor:[self.skin navigationBarTintColor]];
     [navigationBarOrAppearance setShadowImage:[self.skin shadowTopImage]];
+    [navigationBarOrAppearance setTitleTextAttributes:[self.skin navigationBarTitleTextAttributes]];
     
     UIBarMetrics barMetrics = UIBarMetricsDefault;
     UIImage *image = [self.skin navigationBarBackgroundImageForBarMetrics:barMetrics];
@@ -237,6 +243,10 @@
     for (NSUInteger i = 0; i < n; i++) {
         state = states[i];
 
+        
+        [barButtonItemOrAppearance setTitleTextAttributes:[self.skin barButtonItemTitleTextAttributesForState:state]
+                                                 forState:state];
+        
         barMetrics = UIBarMetricsDefault;
         
         style = UIBarButtonItemStyleBordered;
@@ -308,202 +318,34 @@
     [barButtonItemOrAppearance setTintColor:[self.skin accentTintColor]];
 }
 
-/*
- - (void)applySkin2 {
- if (!self.skin) {
- return;
- }
- 
- static UIControlState controlStates[] = {UIControlStateNormal, UIControlStateHighlighted, UIControlStateDisabled, UIControlStateSelected};
- static NSUInteger numControlStates = sizeof(controlStates) / sizeof(UIControlState);
- 
- static UIBarMetrics barMetrics[] = {UIBarMetricsDefault, UIBarMetricsLandscapePhone};
- static NSUInteger numBarMetrics = sizeof(barMetrics) / sizeof(UIBarMetrics);
- 
- static UIBarButtonItemStyle barButtonItemStyles[] = {UIBarButtonItemStylePlain, UIBarButtonItemStyleBordered, UIBarButtonItemStyleDone};
- static NSUInteger numBarButtonItemStyles = sizeof(barButtonItemStyles) / sizeof(UIBarButtonItemStyle);
- 
- static UIToolbarPosition toolbarPositions[] = {UIToolbarPositionAny, UIToolbarPositionBottom, UIToolbarPositionTop};
- static NSUInteger numToolbarPositions = sizeof(toolbarPositions) / sizeof(UIToolbarPosition);
- 
- 
- UIColor *baseTintColor = [self.skin baseTintColor];
- UIColor *accentTintColor = [self.skin accentTintColor];
- 
- NSMutableDictionary *titleTextAttributes = [[NSMutableDictionary alloc] init];
- 
- UIColor *titleTextColor = [self.skin titleTextColor];
- if (titleTextColor) {
- [titleTextAttributes setObject:titleTextColor forKey:UITextAttributeTextColor];
- }
- 
- UIColor *titleTextShadowColor = [self.skin titleTextShadowColor];
- if (titleTextShadowColor) {
- [titleTextAttributes setObject:titleTextShadowColor forKey:UITextAttributeTextShadowColor];
- }
- 
- 
- 
- CGSize titleTextShadowOffset = [self.skin titleTextShadowOffset];
- 
- if (!CGSizeEqualToSize(titleTextShadowOffset, SKINKIT_CGSizeNull)) {
- [titleTextAttributes setObject:[NSValue valueWithCGSize:titleTextShadowOffset] forKey:UITextAttributeTextShadowOffset];
- }
- 
- UILabel *headerLabelAppearane = [UILabel appearanceWhenContainedIn:[UITableViewHeaderFooterView class], nil];
- [headerLabelAppearane setTextColor:titleTextColor];
- [headerLabelAppearane setShadowColor:titleTextShadowColor];
- [headerLabelAppearane setShadowOffset:titleTextShadowOffset];
- 
- 
- // Tab bar
- UITabBar *tabBarAppearance = [UITabBar appearance];
- [tabBarAppearance setShadowImage:[self.skin shadowBottomImage]];
- [tabBarAppearance setSelectionIndicatorImage:[self.skin tabBarSelectionIndicatorImage]];
- [tabBarAppearance setBackgroundImage:[self.skin tabBarBackgroundImage]];
- 
- 
- // Navigation bar
- UINavigationBar *navigationBarAppearance = [UINavigationBar appearance];
- [navigationBarAppearance setShadowImage:[self.skin shadowTopImage]];
- for (NSUInteger i = 0; i < numBarMetrics; i++) {
- UIBarMetrics metrics = barMetrics[i];
- 
- UIImage *image = [self.skin navigationBarBackgroundImageForBarMetrics:metrics];
- [navigationBarAppearance setBackgroundImage:image
- forBarMetrics:metrics];
- }
- 
- 
- // Tool bar
- UIToolbar *toolbarAppearance = [UIToolbar appearance];
- [toolbarAppearance setShadowImage:[self.skin shadowBottomImage]
- forToolbarPosition:UIToolbarPositionBottom];
- [toolbarAppearance setShadowImage:[self.skin shadowTopImage]
- forToolbarPosition:UIToolbarPositionTop];
- for (NSUInteger i = 0; i < numToolbarPositions; i++) {
- UIToolbarPosition toolbarPosition = toolbarPositions[i];
- 
- for (NSUInteger j = 0; j < numBarMetrics; j++) {
- UIBarMetrics metrics = barMetrics[j];
- 
- UIImage *image = [self.skin toolbarBackgroundImageForToolbarPosition:toolbarPosition
- barMetrics:metrics];
- [toolbarAppearance setBackgroundImage:image
- forToolbarPosition:toolbarPosition
- barMetrics:metrics];
- }
- }
- 
- 
- //    // Bar item
- //    UIBarButtonItem *barItemAppearance = [UIBarButtonItem appearance];
- //    for (NSUInteger i = 0; i < numControlStates; i++) {
- //        UIControlState state = controlStates[i];
- //
- //        // there is no selected state on bar button items!
- //        if (state == UIControlStateSelected) {
- //            continue;
- //        }
- //
- //        [barItemAppearance setTitleTextAttributes:[self.skin barItemTitleTextAttributesForState:state]
- //                                         forState:state];
- //    }
- 
- 
- // Bar button item
- 
- // navigation bar button item
- UIBarButtonItem *navigationBarButtonAppearance = [UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil];
- 
- // toolbar button item
- UIBarButtonItem *toolbarButtonAppearance = [UIBarButtonItem appearanceWhenContainedIn:[UIToolbar class], nil];
- [toolbarButtonAppearance setTintColor:titleTextColor];
- 
- for (NSUInteger i = 0; i < numControlStates; i++) {
- UIControlState state = controlStates[i];
- 
- for (NSUInteger j = 0; j < numBarMetrics; j++) {
- UIBarMetrics metrics = barMetrics[j];
- 
- UIImage *image;
- 
- // navigation back bar button item
- image = [self.skin navigationBackBarButtonItemBackgroundImageForState:state
- barMetrics:metrics];
- [navigationBarButtonAppearance setBackButtonBackgroundImage:image
- forState:state
- barMetrics:metrics];
- 
- for (NSUInteger k = 0; k < numBarButtonItemStyles; k++) {
- UIBarButtonItemStyle style = barButtonItemStyles[k];
- 
- // navigation bar button item
- image = [self.skin navigationBarButtonItemBackgroundImageForState:state
- style:style
- barMetrics:metrics];
- [navigationBarButtonAppearance setBackgroundImage:image
- forState:state
- style:style
- barMetrics:metrics];
- // toolbar button item
- image = [self.skin toolbarButtonItemBackgroundImageForState:state
- style:style
- barMetrics:metrics];
- [toolbarButtonAppearance setBackgroundImage:image
- forState:state
- style:style
- barMetrics:metrics];
- }
- 
- }
- }
- 
- UISearchBar *searchBarAppearance = [UISearchBar appearance];
- UIBarButtonItem *barButtonItemAppearance = [UIBarButtonItem appearance];
- 
- 
- // Controls
- UISwitch *switchAppearance = [UISwitch appearance];
- UIStepper *stepperAppearance = [UIStepper appearance];
- UISegmentedControl *segmentedControlAppearance = [UISegmentedControl appearance];
- UISlider *sliderAppearance = [UISlider appearance];
- UIProgressView *progressViewAppearance = [UIProgressView appearance];
- 
- //    if (baseTintColor) {
- [tabBarAppearance setTintColor:baseTintColor];
- [navigationBarAppearance setTintColor:baseTintColor];
- [toolbarAppearance setTintColor:baseTintColor];
- [navigationBarButtonAppearance setTintColor:baseTintColor];
- [searchBarAppearance setTintColor:baseTintColor];
- 
- [switchAppearance setTintColor:baseTintColor];
- [switchAppearance setThumbTintColor:baseTintColor];
- [stepperAppearance setTintColor:baseTintColor];
- [segmentedControlAppearance setTintColor:baseTintColor];
- [sliderAppearance setMaximumTrackTintColor:baseTintColor];
- [sliderAppearance setThumbTintColor:baseTintColor];
- [progressViewAppearance setTrackTintColor:baseTintColor];
- //    }
- 
- //    if (accentTintColor) {
- [tabBarAppearance setSelectedImageTintColor:accentTintColor];
- 
- [switchAppearance setOnTintColor:accentTintColor];
- [sliderAppearance setMinimumTrackTintColor:accentTintColor];
- [progressViewAppearance setProgressTintColor:accentTintColor];
- //    }
- 
- 
- //    if ([titleTextAttributes count]) {
- [navigationBarAppearance setTitleTextAttributes:titleTextAttributes];
- [barButtonItemAppearance setTitleTextAttributes:titleTextAttributes forState:UIControlStateNormal];
- [barButtonItemAppearance setTitleTextAttributes:titleTextAttributes forState:UIControlStateHighlighted];
- [segmentedControlAppearance setTitleTextAttributes:titleTextAttributes forState:UIControlStateNormal];
- //    }
- 
- }
- */
+- (void)applySkinToTableViewHeaderFooterLabel:(UILabel *)labelOrAppearance {
+    if (!labelOrAppearance) {
+        labelOrAppearance = [UILabel appearanceWhenContainedIn:[UITableViewHeaderFooterView class], nil];
+    }
+    
+    NSDictionary *textAttributes = [self.skin tableViewHeaderFooterLabelTextAttributes];
+    
+    UIFont *font = [textAttributes objectForKey:UITextAttributeFont];
+    if (font) {
+        [labelOrAppearance setFont:font];
+    }
+    
+    UIColor *textColor = [textAttributes objectForKey:UITextAttributeTextColor];
+    if (textColor) {
+        [labelOrAppearance setTextColor:textColor];
+    }
+    
+    UIColor *shadowColor = [textAttributes objectForKey:UITextAttributeTextShadowColor];
+    if (shadowColor) {
+        [labelOrAppearance setShadowColor:shadowColor];
+    }
+    
+    NSValue *shadowOffset = [textAttributes objectForKey:UITextAttributeTextShadowOffset];
+    if (shadowOffset) {
+        [labelOrAppearance setShadowOffset:[shadowOffset CGSizeValue]];
+    }
+
+}
 
 - (void)applySkinToGenericView:(UIView *)view {
     [self applySkinToView:view];
@@ -531,8 +373,12 @@
 
 - (void)applySkinToScrollView:(UIScrollView *)scrollView {
     // set content insets
-    scrollView.contentInset = [self.skin scrollViewContentInsets];
-    scrollView.scrollIndicatorInsets = [self.skin scrollViewContentInsets];
+    
+    NSValue *contentInsets = [self.skin scrollViewContentInsets];
+    if (contentInsets) {
+        scrollView.contentInset = [contentInsets UIEdgeInsetsValue];
+        scrollView.scrollIndicatorInsets = [contentInsets UIEdgeInsetsValue];
+    }
 }
 
 - (void)applySkinToTableView:(UITableView *)tableView {
