@@ -124,7 +124,7 @@
     [tabBarOrAppearance setTintColor:[self.skin tabBarTintColor]];
     [tabBarOrAppearance setBackgroundImage:[self.skin tabBarBackgroundImage]];
     [tabBarOrAppearance setSelectionIndicatorImage:[self.skin tabBarSelectionIndicatorImage]];
-    [tabBarOrAppearance setSelectedImageTintColor:[self.skin accentTintColor]];
+    [tabBarOrAppearance setSelectedImageTintColor:[self.skin tabBarSelectedImageTintColor]];
     [tabBarOrAppearance setShadowImage:[self.skin shadowBottomImage]];
 }
 
