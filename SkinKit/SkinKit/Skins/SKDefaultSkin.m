@@ -18,14 +18,15 @@
 
 @implementation SKDefaultSkin
 
-- (id)init {
-    self = [super init];
-    
-    if (self) {
-        self.cache = [NSMutableDictionary dictionaryWithCapacity:0];
+#pragma mark - Custom accessor
+
+- (NSMutableDictionary *)cache {
+    // lazy initialize
+    if (!_cache) {
+        _cache = [NSMutableDictionary dictionaryWithCapacity:0];
     }
     
-    return self;
+    return _cache;
 }
 
 #pragma mark - Default image names
