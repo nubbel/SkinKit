@@ -34,6 +34,8 @@
 
 @protocol SKSkinManagerDelegate <NSObject>
 
+@optional
+
 - (void)skinManagerWillApplySkin:(SKSkinManager *)skinManager;
 - (void)skinManagerDidApplySkin:(SKSkinManager *)skinManager;
 
