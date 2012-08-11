@@ -20,8 +20,7 @@
 
 @synthesize applied = _applied;
 
-- (id)init
-{
+- (id)init {
     self = [super init];
     
     if (self) {
