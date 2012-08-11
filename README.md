@@ -30,7 +30,14 @@ Requirements
 Using a workspace
 -----------------
 
-// TODO: add installation guide
+1. Create workspace in Xcode
+2. Copy your project in the workspace or create a new one
+3. Add the SkinKit project (not the demo!) as a sibling to the workspace
+4. Drag the libSkinKit.a to your project's "Link Binary with Library" build phase.
+5. Set header search path to: "$(BUILT_PRODUCTS_DIR)" (recursive).
+6. Add "Other linker flags": "-ObjC"
+
+// TODO: add detailed installation guide
 
 
 CocoaPods
