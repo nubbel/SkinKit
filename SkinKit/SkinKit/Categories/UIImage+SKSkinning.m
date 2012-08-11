@@ -8,6 +8,8 @@
 
 #import "UIImage+SKSkinning.h"
 
+#import <QuartzCore/QuartzCore.h>
+
 @implementation UIImage (SKSkinning)
 
 //+ (UIImage *)snapshotImageOfView:(UIView *)view {
