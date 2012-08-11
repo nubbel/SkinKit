@@ -19,5 +19,10 @@
 // convenience methods
 - (UIImage *)imageNamed:(NSString *)name;
 
+- (NSString *)stringFromControlState:(UIControlState)state;
+- (NSString *)stringFromBarMetrics:(UIBarMetrics)barMetrics;
+- (NSString *)stringFromBarButtonItemStyle:(UIBarButtonItemStyle)style;
+- (NSString *)stringFromToolbarPosition:(UIToolbarPosition)position;
+
 
 @end
