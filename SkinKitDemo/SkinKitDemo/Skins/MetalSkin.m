@@ -11,9 +11,9 @@
 @implementation MetalSkin
 
 
-- (UIColor *)accentTintColor {
-    return [UIColor purpleColor];
-}
+//- (UIColor *)accentTintColor {
+//    return [UIColor purpleColor];
+//}
 
 - (UIColor *)backgroundColor {
     return [UIColor underPageBackgroundColor];

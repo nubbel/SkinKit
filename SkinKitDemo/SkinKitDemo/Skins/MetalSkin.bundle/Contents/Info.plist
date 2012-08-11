@@ -6,5 +6,13 @@
 	<string>de.dargent.MetalSkin</string>
 	<key>CFBundleName</key>
 	<string>MetalSkin</string>
+	<key>SKSkinDataSource</key>
+	<dict>
+		<key>accentTintColor</key>
+		<dict>
+			<key>name</key>
+			<string>purple</string>
+		</dict>
+	</dict>
 </dict>
 </plist>
