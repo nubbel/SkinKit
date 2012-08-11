@@ -27,7 +27,8 @@
     NSStringFromClass([SKDefaultSkin class]),
     NSStringFromClass([TintedSkin class]),
     NSStringFromClass([MetalSkin class]),
-    NSStringFromClass([LeatherSkin class]) ];
+    NSStringFromClass([LeatherSkin class]),
+    @"BundledSkin"];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -60,7 +61,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *skinName = self.skins[indexPath.row];
-    id <SKSkinDataSource> skin = [[NSClassFromString(skinName) alloc] init];
+    Class class = NSClassFromString(skinName);
+                   
+    id <SKSkinDataSource> skin;
+    
+    if (class) {
+        skin = [[class alloc] init];
+    }
+    else {
+        skin = [[SKDefaultSkin alloc] initWithBundleName:skinName];
+    }
     
     
     // save user defaults

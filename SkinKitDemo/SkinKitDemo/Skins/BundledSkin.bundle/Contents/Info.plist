@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIdentifier</key>
+	<string>SkinKit.Skin.BundledSkin</string>
+	<key>SKSkinDataSource</key>
+	<dict>
+		<key>controlBaseTintColor</key>
+		<dict>
+			<key>name</key>
+			<string>orange</string>
+		</dict>
+		<key>backgroundColor</key>
+		<dict>
+			<key>hsb</key>
+			<dict>
+				<key>h</key>
+				<string>0.7</string>
+				<key>s</key>
+				<string>0.2</string>
+				<key>b</key>
+				<string>0.7</string>
+				<key>a</key>
+				<string>1.0</string>
+			</dict>
+		</dict>
+		<key>accentTintColor</key>
+		<dict>
+			<key>hex</key>
+			<string>#df4</string>
+		</dict>
+		<key>baseTintColor</key>
+		<dict>
+			<key>rgb</key>
+			<string>1.0 0.3 0.5</string>
+		</dict>
+	</dict>
+	<key>CFBundleName</key>
+	<string>BundledSkin</string>
+</dict>
+</plist>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D0B0BFC15D6738D001FB744 /* BundledSkin.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5D0B0BFB15D6738D001FB744 /* BundledSkin.bundle */; };
 		5D0D9D1D1597756800EFA2C4 /* MetalSkin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0D9D1C1597756800EFA2C4 /* MetalSkin.m */; };
 		5D2B878E1596081C00CFB35D /* libSkinKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2B878D1596081C00CFB35D /* libSkinKit.a */; };
 		5D2D9C1415991AFB0048C7AC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2D9C1315991AFB0048C7AC /* ViewController.m */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D0B0BFB15D6738D001FB744 /* BundledSkin.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = BundledSkin.bundle; path = Skins/BundledSkin.bundle; sourceTree = "<group>"; };
 		5D0D9D1B1597756800EFA2C4 /* MetalSkin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MetalSkin.h; path = Skins/MetalSkin.h; sourceTree = "<group>"; };
 		5D0D9D1C1597756800EFA2C4 /* MetalSkin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MetalSkin.m; path = Skins/MetalSkin.m; sourceTree = "<group>"; };
 		5D2B878D1596081C00CFB35D /* libSkinKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSkinKit.a; path = "../../../../../../../../../../Developer/Xcode/DerivedData/SkinKitWorkspace-fvtjbhfpxbofssbazthllfciehjj/Build/Products/Debug-iphoneos/libSkinKit.a"; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 		5D2B87961596214300CFB35D /* Skins */ = {
 			isa = PBXGroup;
 			children = (
+				5D0B0BFB15D6738D001FB744 /* BundledSkin.bundle */,
 				5D6DCFB9159717BD0002C9BA /* TintedSkin.h */,
 				5D6DCFBA159717BD0002C9BA /* TintedSkin.m */,
 				5D0D9D1B1597756800EFA2C4 /* MetalSkin.h */,
@@ -203,6 +206,7 @@
 				5DF3ABAD159D3232008C19A2 /* Icon.png in Resources */,
 				5DF3ABAF159D3237008C19A2 /* Icon@2x.png in Resources */,
 				5DF3ABB1159D3A69008C19A2 /* MetalSkin.bundle in Resources */,
+				5D0B0BFC15D6738D001FB744 /* BundledSkin.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

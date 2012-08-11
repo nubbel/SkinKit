@@ -17,7 +17,7 @@
 {
     // Override point for customization after application launch.
     
-    NSLog(@"Using SkinKit version %@ by %@.", [SkinKit version], [SkinKit author]);
+    NSLog(@"Using SkinKit version %@ by %@. %@", [SkinKit version], [SkinKit author], UITextAttributeTextColor);
     
     NSString *skinClass = [[NSUserDefaults standardUserDefaults] objectForKey:@"skin"];
     NSLog(@"User skin: %@", skinClass);
@@ -29,9 +29,10 @@
     
 //    skinManager.skin = [[SKDefaultSkin alloc] init];
 //    skinManager.skin = [[TintedSkin alloc] init];
-    skinManager.skin = [[LeatherSkin alloc] init];
+//    skinManager.skin = [[LeatherSkin alloc] init];
 //    skinManager.skin = [[MetalSkin alloc] init];
 //    skinManager.skin = [[NSClassFromString(skinClass) alloc] init];
+    skinManager.skin = [[SKDefaultSkin alloc] initWithBundleName:@"BundledSkin"];
     
     
     [skinManager applySkin];
