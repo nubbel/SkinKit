@@ -14,6 +14,7 @@
 + (UIColor *)colorWithRGBString:(NSString *)rgb;
 + (UIColor *)colorWithHSBString:(NSString *)hsb;
 + (UIColor *)colorWithHexString:(NSString *)hex;
++ (UIColor *)colorWithName:(NSString *)name;
 
 - (UIColor *)lighterColor;
 - (UIColor *)darkerColor;

@@ -54,20 +54,7 @@
         color = [self colorWithHexString:hex];
     }
     else if (name) {
-        // trim and make lowercase
-        name = [name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-        name = [name lowercaseString];
-        
-        SEL selector = NSSelectorFromString([name stringByAppendingString:@"Color"]);
-        id colorClass = [UIColor class];
-        
-        if ([colorClass respondsToSelector:selector]) {
-            // TODO: find better solution!
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-            color = [colorClass performSelector:selector];
-#pragma clang diagnostic pop
-        }
+        color = [self colorWithName:name];
     }
     
     return color;
@@ -168,6 +155,25 @@
                              blue:blue
                             alpha:alpha];
 }
+
+// TODO: dirty... - I know!
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
++ (UIColor *)colorWithName:(NSString *)name {
+    // trim and make lowercase
+    name = [name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    name = [name lowercaseString];
+    
+    SEL selector = NSSelectorFromString([name stringByAppendingString:@"Color"]);
+    id colorClass = [UIColor class];
+    
+    if ([colorClass respondsToSelector:selector]) {
+        return [colorClass performSelector:selector];
+    }
+    
+    return nil;
+}
+#pragma clang diagnostic pop
 
 - (UIColor *)lighterColor {
     CGFloat hue, saturation, brightness, alpha, white;

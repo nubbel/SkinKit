@@ -141,17 +141,17 @@
 
 #pragma mark - Base colors
 - (UIColor *)backgroundColor {
-    return nil;
+    return [self colorValueForBundleKey:NSStringFromSelector(_cmd)];
 }
 
 
 #pragma mark - Tint colors
 - (UIColor *)baseTintColor {
-    return nil;
+    return [self colorValueForBundleKey:NSStringFromSelector(_cmd)];
 }
 
 - (UIColor *)accentTintColor {
-    return nil;
+    return [self colorValueForBundleKey:NSStringFromSelector(_cmd)];
 }
 
 
@@ -183,7 +183,7 @@
 
 #pragma mark - Tab bar
 - (UIColor *)tabBarTintColor {
-    return nil;
+    return [self colorValueForBundleKey:NSStringFromSelector(_cmd)];
 }
 
 - (UIImage *)tabBarBackgroundImage {
@@ -195,13 +195,13 @@
 }
 
 - (UIColor *)tabBarSelectedImageTintColor {
-    return nil;
+    return [self colorValueForBundleKey:NSStringFromSelector(_cmd)];
 }
 
 
 #pragma mark - Navigation bar
 - (UIColor *)navigationBarTintColor {
-    return nil;
+    return [self colorValueForBundleKey:NSStringFromSelector(_cmd)];
 }
 
 - (UIImage *)navigationBarBackgroundImageForBarMetrics:(UIBarMetrics)barMetrics {
@@ -211,7 +211,7 @@
 
 #pragma mark - Toolbar
 - (UIColor *)toolbarTintColor {
-    return nil;
+    return [self colorValueForBundleKey:NSStringFromSelector(_cmd)];
 }
 
 - (UIImage *)toolbarBackgroundImageForToolbarPosition:(UIToolbarPosition)toolbarPosition
@@ -221,7 +221,7 @@
 
 #pragma mark - Search bar
 - (UIColor *)searchBarTintColor {
-    return nil;
+    return [self colorValueForBundleKey:NSStringFromSelector(_cmd)];
 }
 
 - (UIImage *)searchBarBackgroundImage {
@@ -231,7 +231,7 @@
 
 #pragma mark - Bar button item
 - (UIColor *)barButtonItemTintColor {
-    return nil;
+    return [self colorValueForBundleKey:NSStringFromSelector(_cmd)];
 }
 
 - (UIImage *)barButtonItemBackgroundImageForState:(UIControlState)state
@@ -260,15 +260,15 @@
 
 #pragma mark - Controls
 - (UIColor *)controlBaseTintColor {
-    return nil;
+    return [self colorValueForBundleKey:NSStringFromSelector(_cmd)];
 }
 
 - (UIColor *)controlAccentTintColor {
-    return nil;
+    return [self colorValueForBundleKey:NSStringFromSelector(_cmd)];
 }
 
 - (UIColor *)controlThumbTintColor {
-    return nil;
+    return [self colorValueForBundleKey:NSStringFromSelector(_cmd)];
 }
 
 @end

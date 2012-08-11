@@ -82,6 +82,13 @@
 - (UIColor *)baseTintColor {
     static NSString *cacheKey = @"baseTintColor";
     
+    // 1. from bundle
+    UIColor *color = [super baseTintColor];
+    if (color) {
+        return color;
+    }
+    
+    // 2. derive from navigation bar image
     id cached = self.cache[cacheKey];
     if (!cached) {
         UIImage *navigationBarImage = [self navigationBarBackgroundImageForBarMetrics:UIBarMetricsDefault];
@@ -98,18 +105,26 @@
         return cached;
     }
     
-    return [super baseTintColor];
+    return nil;
 }
 
 // calculates from baseTintColor
 - (UIColor *)backgroundColor {
     static NSString *cacheKey = @"backgroundColor";
     
+    // 1. from specified pattern image
     UIImage *patternImage = [self imageNamed:[self backgroundPatternImageName]];
     if (patternImage) {
         return [UIColor colorWithPatternImage:patternImage];
     }
     
+    // 2. from bundle
+    UIColor *color = [super backgroundColor];
+    if (color) {
+        return color;
+    }
+    
+    // 3. lighter than base tint color
     id cached = self.cache[cacheKey];
     if (!cached) {
         
@@ -123,42 +138,87 @@
         return cached;
     }
     
-    return [super backgroundColor];
+    return nil;
 }
 
 - (UIColor *)tabBarTintColor {
+    UIColor *color = [super tabBarTintColor];
+    if (color) {
+        return color;
+    }
+    
     return [[self baseTintColor] darkerColor];
 }
 
 - (UIColor *)tabBarSelectedImageTintColor {
+    UIColor *color = [super tabBarSelectedImageTintColor];
+    if (color) {
+        return color;
+    }
+    
     return [self accentTintColor];
 }
 
 - (UIColor *)navigationBarTintColor {
+    UIColor *color = [super navigationBarTintColor];
+    if (color) {
+        return color;
+    }
+    
     return [self baseTintColor];
 }
 
 - (UIColor *)toolbarTintColor {
+    UIColor *color = [super toolbarTintColor];
+    if (color) {
+        return color;
+    }
+    
     return [self baseTintColor];
 }
 
 - (UIColor *)searchBarTintColor {
+    UIColor *color = [super searchBarTintColor];
+    if (color) {
+        return color;
+    }
+    
     return [self baseTintColor];
 }
 
 - (UIColor *)barButtonItemTintColor {
+    UIColor *color = [super barButtonItemTintColor];
+    if (color) {
+        return color;
+    }
+    
     return [self baseTintColor];
 }
 
 - (UIColor *)controlBaseTintColor {
+    UIColor *color = [super controlBaseTintColor];
+    if (color) {
+        return color;
+    }
+    
     return [self baseTintColor];
 }
 
 - (UIColor *)controlAccentTintColor {
+    UIColor *color = [super controlAccentTintColor];
+    if (color) {
+        return color;
+    }
+    
     return [self accentTintColor];
 }
 
 - (UIColor *)controlThumbTintColor {
+    UIColor *color = [super controlThumbTintColor];
+    if (color) {
+        return color;
+    }
+    
     return [self controlBaseTintColor];
 }
 
