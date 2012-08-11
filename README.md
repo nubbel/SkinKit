@@ -104,7 +104,7 @@ If, for example, you wish to set the background color of all "first-level" views
 
 This works by having a category on `UIViewController` automatically call the methods shown above (`applySkinTo*View`) on the view controller's root view.
 
-<a name="building-skins"></a>
+
 Building skins
 --------------
 
