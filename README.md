@@ -208,16 +208,97 @@ Method        | Declared in | Meaning | SKSkin | SKDefaultSkin
 ------------- | ----------- | ------- | ------ | ------------- 
 `(UIColor *)baseTintColor` | `SKSkinDataSource` | The base tint color for this skin, used as a base for other attributes. | from `Info.plist`. | average color from navigation bar image
 `(UIColor *)accentTintColor` | `SKSkinDataSource` | The accent color (used for highlights etc.). | from `Info.plist`. | -
-`(UIColor *)backgroundColor` | `SKSkinDataSource` | The background color for views. | from `Info.plist`. | `lighten(baseTintColor)`
-`(UIImage *)shadowTopImage` | `SKSkinDataSource` | The top shadow for bar elements. | `nil` | image name: `shadowTop`
-`(UIImage *)shadowBottomImage` | `SKSkinDataSource` | The bottom shadow for bar elements. | `nil` | image name: `shadowBottom`
+`(UIColor *)backgroundColor` | `SKSkinDataSource` | The background color (or pattern image) for views. | from `Info.plist`. | `lighten(baseTintColor)`
+`(UIImage *)shadowTopImage` | `SKSkinDataSource` | The top shadow for bar elements. | `nil` | `imageNamed(shadowTopImageName)`
+`(UIImage *)shadowBottomImage` | `SKSkinDataSource` | The bottom shadow for bar elements. | `nil` | `imageNamed(shadowBottomImageName)`
+`(NSString *)shadowTopImageName` | `SKDefaultSkin` | Image name for top shadow. | - | "shadowTop"
+`(NSString *)shadowBottomImageName` | `SKDefaultSkin` | Image name for bottom shadow. | - | "shadowBottom"
+`(NSString *)stringFromControlState:(UIControlState)state` | `SKSkin` | String for control state. | "", "Highlighted", "Selected", "Disabled" | -
+`(NSString *)stringFromBarMetrics:(UIBarMetrics)barMetrics` | `SKSkin` | String for bar metrics. | "", "Landscape" | -
+`(NSString *)stringFromBarButtonItemStyle:(UIBarButtonItemStyle)style` | `SKSkin` | String for bar button item style. | "", "Done" | -
+`(NSString *)stringFromToolbarPosition:(UIToolbarPosition)position` | `SKSkin` | String for toolbar position. | "", "Top", "Bottom" | -
+
+### UITabBar ###
+
+Method        | Declared in | Meaning | SKSkin | SKDefaultSkin
+------------- | ----------- | ------- | ------ | ------------- 
+`(UIColor *)tabBarTintColor` | `SKSkinDataSource` | The tab bar tint color. Dark colors look better. | from `Info.plist`. | `darken(baseTintColor)`
+`(UIImage *)tabBarBackgroundImage` | `SKSkinDataSource` | The tab bar background image. | nil | `imageNamed(tabBarBackgroundImageName)`
+`(UIImage *)tabBarSelectionIndicatorImage` | `SKSkinDataSource` | An image that indicates the selected tab bar item. | nil | `imageNamed(tabBarSelectionIndicatorImageName)`
+`(UIColor *)tabBarSelectedImageTintColor` | `SKSkinDataSource` | The tint color of the selected tab bar item image. | from `Info.plist`. | `accentColor`
+`(NSString *)tabBarSelectionIndicatorImageName` | `SKDefaultSkin` | Image name for tab bar background. | - | "tabBarBackground"
+`(NSString *)tabBarSelectionIndicatorImageName` | `SKDefaultSkin` | Image name for selection indicator. | - | "tabBarSelectionIndicator"
+
 
 ### UINavigationBar ###
 
-// TODO: list all attributes, sorted by UI element
+Method        | Declared in | Meaning | SKSkin | SKDefaultSkin
+------------- | ----------- | ------- | ------ | ------------- 
+`(UIColor *)navigationBarTintColor` | `SKSkinDataSource` | The navigation bar tint color. | from `Info.plist`. | `baseTintColor`
+`(UIImage *)navigationBarBackgroundImageForBarMetrics:(UIBarMetrics)barMetrics` | `SKSkinDataSource` | The navigation bar background image for given bar metrics. | nil | `imageNamed(navigationBarBackgroundImageName + str(barMetrics))`
+`(NSDictionary *)navigationBarTitleTextAttributes` | `SKSkinDataSource` | A dictionary containing text attributes. See [UITextAttributes](http://developer.apple.com/library/ios/documentation/uikit/reference/NSString_UIKit_Additions/Reference/Reference.html#//apple_ref/doc/uid/TP40006893-CH3-DontLinkElementID_3). | `nil` | -
+`(NSString *)navigationBarBackgroundImageName` | `SKDefaultSkin` | Image name for navigation bar background. | - | "navigationBarBackground"
 
-Planned improvements
-====================
+
+### UIToolbar ###
+
+Method        | Declared in | Meaning | SKSkin | SKDefaultSkin
+------------- | ----------- | ------- | ------ | ------------- 
+`(UIColor *)toolbarTintColor` | `SKSkinDataSource` | The toolbar tint color. | from `Info.plist`. | `baseTintColor`
+`(UIImage *)toolbarBackgroundImageForToolbarPosition:(UIToolbarPosition)pos barMetrics:(UIBarMetrics)barMetrics` | `SKSkinDataSource` | The toolbar background image for given position and bar metrics. | nil | `imageNamed(toolbarBackgroundImageName + str(pos) + str(barMetrics))`
+`(NSString *)toolbarBackgroundImageName` | `SKDefaultSkin` | Image name for toolbar background. | - | "toolbarBackground"
+
+
+### UISearchBar ###
+
+Method        | Declared in | Meaning | SKSkin | SKDefaultSkin
+------------- | ----------- | ------- | ------ | ------------- 
+`(UIColor *)searchBarTintColor` | `SKSkinDataSource` | The search bar tint color. | from `Info.plist`. | `baseTintColor`
+`(UIImage *)searchBarBackgroundImage` | `SKSkinDataSource` | The search bar background image. | nil | `imageNamed(searchBarBackgroundImageName)`
+`(NSString *)searchBarBackgroundImageName` | `SKDefaultSkin` | Image name for search bar background. | - | "searchBarBackground"
+
+
+### UIBarButtonItem ###
+
+Method        | Declared in | Meaning | SKSkin | SKDefaultSkin
+------------- | ----------- | ------- | ------ | ------------- 
+`(UIColor *)barButtonItemTintColor` | `SKSkinDataSource` | The bar button item tint color. | from `Info.plist`. | `baseTintColor`
+`(UIImage *)barButtonItemBackgroundImageForState:(UIControlState)state style:(UIBarButtonItemStyle)style barMetrics:(UIBarMetrics)barMetrics` | `SKSkinDataSource` | The bar button item background image for given control sate, button style and bar metrics. | nil | `imageNamed(barButtonItemBackgroundImageName + str(style) + str(state) + str(barMetrics))`
+`(UIImage *)backBarButtonItemBackgroundImageForState:(UIControlState)state barMetrics:(UIBarMetrics)barMetrics` | `SKSkinDataSource` | The back bar button item background image for given control sate and bar metrics. | nil | `imageNamed(backBarButtonItemBackgroundImageName + str(state) + str(barMetrics))`
+`(NSDictionary *)barButtonItemTitleTextAttributesForState:(UIControlState)state` | `SKSkinDataSource` | A dictionary containing text attributes for a given control state. See [UITextAttributes](http://developer.apple.com/library/ios/documentation/uikit/reference/NSString_UIKit_Additions/Reference/Reference.html#//apple_ref/doc/uid/TP40006893-CH3-DontLinkElementID_3). | `nil` | -
+`(NSString *)barButtonItemBackgroundImageName` | `SKDefaultSkin` | Image name for bar button item background. | - | "barButtonItemBackground"
+`(NSString *)backBarButtonItemBackgroundImageName` | `SKDefaultSkin` | Image name for back bar button item background. | - | "backBarButtonItemBackground"
+
+
+### UITableView ###
+
+Method        | Declared in | Meaning | SKSkin | SKDefaultSkin
+------------- | ----------- | ------- | ------ | ------------- 
+`(UIImage *)tableViewBackgroundImage` | `SKSkinDataSource` | The table view background image. | nil | `imageNamed(tableViewBackgroundImageName)`
+`(NSString *)tableViewBackgroundImageName` | `SKDefaultSkin` | Image name for table view background. | - | "tableViewBackground"
+
+
+### UIScrollView ###
+
+Method        | Declared in | Meaning | SKSkin | SKDefaultSkin
+------------- | ----------- | ------- | ------ | ------------- 
+`(NSValue *)scrollViewContentInsets` | `SKSkinDataSource` | The scroll view content insets as `NSValue` wrapping a `UIEdgeInset` struct. | nil | -
+
+
+
+### Controls ###
+
+Skinnable controls: `UISwitch`, `UIStepper`, `UISegmentedControl`, `UISlider`, `UIProgressView`
+
+Method        | Declared in | Meaning | SKSkin | SKDefaultSkin
+------------- | ----------- | ------- | ------ | ------------- 
+`(UIColor *)controlBaseTintColor` | `SKSkinDataSource` | The control base tint color. | from `Info.plist`. | `baseTintColor`
+`(UIColor *)controlAccentTintColor` | `SKSkinDataSource` | The control accent tint color. | from `Info.plist`. | `accentTintColor`
+`(UIColor *)controlThumbTintColor` | `SKSkinDataSource` | The control thumb tint color. | from `Info.plist`. | `baseControlTintColor`
+
+
+Planned features and improvements
+=================================
 
 - Shared skins.
 - Custom layout.
