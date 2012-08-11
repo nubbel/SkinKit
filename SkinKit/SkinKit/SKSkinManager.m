@@ -7,8 +7,7 @@
 //
 
 #import "SKSkinManager.h"
-
-#import "SkinKit.h"
+#import "SKConstants.h"
 
 @interface SKSkinManager ()
 

@@ -7,8 +7,8 @@
 //
 
 #import "SKSkin.h"
-
-#import "SkinKit.h"
+#import "SKConstants.h"
+#import "UIColor+SKSkinning.h"
 
 @interface SKSkin ()
 
@@ -48,9 +48,8 @@
 
 - (UIImage *)imageNamed:(NSString *)name {
     if (self.bundle) {
-        // TODO: optimize
         NSString *bundleFilename = [[self.bundle bundlePath] lastPathComponent];
-        NSString *resourcesFolder = [[self.bundle resourcePath] lastPathComponent];
+        NSString *resourcesFolder = [[self.bundle resourceURL] relativePath];
         NSString *resourcesPath = [bundleFilename stringByAppendingPathComponent:resourcesFolder];
         
         name = [resourcesPath stringByAppendingPathComponent:name];
@@ -62,6 +61,31 @@
     
     return image;
 }
+
+#pragma mark - Bundle
+- (id)valueForBundleKey:(NSString *)key {
+    NSDictionary *bundleValues = [self.bundle objectForInfoDictionaryKey:SKINKIT_BUNDLE_DATASOURCE_KEY];
+    
+    return [bundleValues objectForKey:key];
+}
+
+- (NSString *)stringValueForBundleKey:(NSString *)key {
+    // TODO: type validation required?
+    return [self valueForBundleKey:key];
+}
+
+- (NSDictionary *)dictionaryValueForBundleKey:(NSString *)key {
+    // TODO: type validation required?
+    return [self valueForBundleKey:key];
+}
+
+- (UIColor *)colorValueForBundleKey:(NSString *)key {
+    NSDictionary *dict = [self dictionaryValueForBundleKey:key];
+    
+    return [UIColor colorWithDictionary:dict];
+}
+
+#pragma mark - String from constants
 
 - (NSString *)stringFromControlState:(UIControlState)state {
     switch (state) {

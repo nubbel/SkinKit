@@ -10,6 +10,11 @@
 
 @interface UIColor (SKSkinning)
 
++ (UIColor *)colorWithDictionary:(NSDictionary *)dictionary;
++ (UIColor *)colorWithRGBString:(NSString *)rgb;
++ (UIColor *)colorWithHSBString:(NSString *)hsb;
++ (UIColor *)colorWithHexString:(NSString *)hex;
+
 - (UIColor *)lighterColor;
 - (UIColor *)darkerColor;
 

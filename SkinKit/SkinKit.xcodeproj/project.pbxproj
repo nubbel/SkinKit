@@ -27,6 +27,7 @@
 		5D7747541597B4FD00405EC5 /* UIImage+SKSkinning.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7747521597B4FD00405EC5 /* UIImage+SKSkinning.m */; };
 		5D7747571597B63400405EC5 /* UIColor+SKSkinning.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D7747551597B63400405EC5 /* UIColor+SKSkinning.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D7747581597B63400405EC5 /* UIColor+SKSkinning.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7747561597B63400405EC5 /* UIColor+SKSkinning.m */; };
+		5DDAD96515D6925B009A3987 /* SKConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DDAD96315D6920C009A3987 /* SKConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		5D7747521597B4FD00405EC5 /* UIImage+SKSkinning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SKSkinning.m"; sourceTree = "<group>"; };
 		5D7747551597B63400405EC5 /* UIColor+SKSkinning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SKSkinning.h"; sourceTree = "<group>"; };
 		5D7747561597B63400405EC5 /* UIColor+SKSkinning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SKSkinning.m"; sourceTree = "<group>"; };
+		5DDAD96315D6920C009A3987 /* SKConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			children = (
 				5D74C4A51595EFF300714E22 /* SkinKit.h */,
 				5D74C4A71595EFF300714E22 /* SkinKit.m */,
+				5DDAD96315D6920C009A3987 /* SKConstants.h */,
 				5D74C52A1595F65D00714E22 /* SKSkinManager.h */,
 				5D74C52B1595F65D00714E22 /* SKSkinManager.m */,
 				5D2B879D15966FA100CFB35D /* SKSkinDataSource.h */,
@@ -150,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D6DD0C315973B280002C9BA /* SKDefaultSkin.h in Headers */,
+				5DDAD96515D6925B009A3987 /* SKConstants.h in Headers */,
 				5D2B87A5159671DC00CFB35D /* SkinKit.h in Headers */,
 				5D7747451597B0F400405EC5 /* UIViewController+SKSkinning.h in Headers */,
 				5D2B87A6159671DC00CFB35D /* SKSkinManager.h in Headers */,

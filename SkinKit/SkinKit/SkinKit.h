@@ -11,9 +11,8 @@
 
 #pragma mark - SkinKit
 
-#define SKINKIT_VERSION @"0.0.1"
-#define SKINKIT_AUTHOR  @"Dominique d'Argent"
-#define SKINKIT_BUNDLE_EXTENSION @"bundle"
+// load constants
+#import "SKConstants.h"
 
 @interface SkinKit : NSObject
 
