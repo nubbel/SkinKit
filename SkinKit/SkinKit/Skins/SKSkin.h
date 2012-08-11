@@ -13,6 +13,9 @@
 
 @property (nonatomic, strong, readonly) NSBundle *bundle;
 
+// designated initializer
+- (id)initWithBundleName:(NSString *)bundleName;
+
 // convenience methods
 - (UIImage *)imageNamed:(NSString *)name;
 

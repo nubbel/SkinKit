@@ -20,20 +20,27 @@
 
 @synthesize applied = _applied;
 
-- (id)init {
+- (id)initWithBundleName:(NSString *)bundleName {
     self = [super init];
     
     if (self) {
-        NSString *bundleName = NSStringFromClass([self class]);
-        NSString *bundlePath = [[NSBundle mainBundle] pathForResource:bundleName
-                                                               ofType:SKINKIT_BUNDLE_EXTENSION];
-        
-        if (bundlePath) {
-            self.bundle = [NSBundle bundleWithPath:bundlePath];
+        if (bundleName) {
+            NSString *bundlePath = [[NSBundle mainBundle] pathForResource:bundleName
+                                                                   ofType:SKINKIT_BUNDLE_EXTENSION];
+            
+            if (bundlePath) {
+                self.bundle = [NSBundle bundleWithPath:bundlePath];
+            }
         }
     }
     
     return self;
+}
+
+- (id)init {
+    NSString *bundleName = NSStringFromClass([self class]);
+    
+    return [self initWithBundleName:bundleName];
 }
 
 
