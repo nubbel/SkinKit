@@ -15,7 +15,7 @@
 @interface SKSkinManager : NSObject
 
 // singleton
-+ (id)sharedSkinManager;
++ (SKSkinManager *)sharedSkinManager;
 
 @property (nonatomic, weak) id <SKSkinManagerDelegate> delegate;
 @property (nonatomic, strong) id <SKSkinDataSource> skin;

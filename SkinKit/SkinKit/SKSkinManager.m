@@ -16,7 +16,7 @@
 
 @implementation SKSkinManager
 
-+ (id)sharedSkinManager {
++ (SKSkinManager *)sharedSkinManager {
     static id instance;
     
     static dispatch_once_t onceToken;
