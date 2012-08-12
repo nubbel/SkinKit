@@ -9,7 +9,7 @@ Features
 
 - Simple interface for loading skins.
 - Skins encapsulate the appearance modifications that make your app look special.
-- **Useful defaults**: When using `SKDefaultSkin` or a subclass, you don't need to specify every single property. Instead the skin makes useful assumptions by calculating colors based on properties you provide. For example, when set the `baseTintColor` the `backgroundColor` is *automagically* set to a lighter version of that color while the `tabBarTintColor` gets a darker one. To learn more about that magic, read the [Building skins](#building-skins) section.
+- **Useful defaults**: When using `SKDefaultSkin` or a subclass, you don't need to specify every single property. Instead the skin makes useful assumptions by calculating colors based on properties you provide. For example, when the `baseTintColor` is specified the `backgroundColor` is *automagically* set to a lighter version of that color while the `tabBarTintColor` gets a darker one. To learn more about that magic, read the [Building skins](#building-skins) section.
 - The framework allows customization of UI elements that don't support the `UIAppearance` proxy, such as setting the background color (or a pattern image) on a regular `UIView`. 
 - Use bundles for your skins.
 
@@ -17,7 +17,7 @@ Features
 Installation
 ============
 
-It's recommended to use a workspace where you put both your project and the **SkinKit** framework as siblings. It may also work if you put **SkinKit** as a subproject of you app, but I haven"t tested it yet.
+It's recommended to use a workspace where you put both your project and the **SkinKit** framework as siblings. It may also work if you put **SkinKit** as a subproject of your app, but I haven"t tested it yet.
 
 Requirements
 ------------
@@ -30,12 +30,12 @@ Requirements
 Using a workspace
 -----------------
 
-1. Create workspace in Xcode
-2. Copy your project in the workspace or create a new one
-3. Add the SkinKit project (not the demo!) as a sibling to the workspace
+1. Create a workspace in Xcode.
+2. Copy your main project to the workspace or create a new one.
+3. Add the SkinKit project (not the demo!) as a sibling to the workspace.
 4. Drag the libSkinKit.a to your project's "Link Binary with Library" build phase.
-5. Set header search path to: "$(BUILT_PRODUCTS_DIR)" (recursive).
-6. Add "Other linker flags": "-ObjC"
+5. Set header search path to: "$(BUILT\_PRODUCTS\_DIR)", check "recursive".
+6. Add "Other linker flags": "-ObjC".
 
 // TODO: add detailed installation guide
 
@@ -77,12 +77,12 @@ A good place to load the skin for your app is in the `application:didFinishLaunc
 ```
 
 This piece of code first retrieves an instance of the `SKSkinManager` class which is responsible for applying custom appearance modifications to your UI elements. It mainly relies on the `UIAppearance` proxy that was introduced in iOS 5.0 and further enhanced in iOS 6.0.  
-The next step is to set a skin that should be used modify the app's appearance. A skin functions as a data source (much like a `UITableViewDataSource`). The skin manager may ask the skin for colors to tint UI elements or for custom images to be used for the navigation bar or bar button items etc.. Learn more about skins and how to build them in the [Building skins](#building-skins) section.  
-Finally call `applySkin` 
+The next step is to set a skin that should be used to modify the app's appearance. A skin functions as a data source (much like a `UITableViewDataSource`). The skin manager may ask the skin for colors to tint UI elements or for custom images to be used for the navigation bar or bar button items etc.. Learn more about skins and how to build them in the [Building skins](#building-skins) section.  
+Finally call `applySkin` for the modifications to take effect.
 
 ### Customize views ###
 
-Some UI elements (like a regular `UIView`, `UIScrollView` or `UITableView`) don't support the `UIAppearance` proxy. However **SkinKit** provides a way to do custom appearance modifications on these elements as well. One way to do this is to manually apply the skin to individual view:
+Some UI elements (like a regular `UIView`, `UIScrollView` or `UITableView`) don't have a `UIAppearance` proxy. However **SkinKit** provides a way to do custom appearance modifications on these elements as well. One way to do this is to manually apply the skin to individual views:
 
 ```objc
 // skin a UIView
@@ -96,7 +96,7 @@ Some UI elements (like a regular `UIView`, `UIScrollView` or `UITableView`) don'
 ```
 
 This gives you fine granular control of the views you want to customize, but requires a lot of code.  
-If, for example, you wish to set the background color of all "first-level" views, i.e. the views that are directly associated to a `UIViewController`, there's also a handy way to do this:
+If, for example, you wish to set the background color of all "top-level" views, i.e. the views that are directly associated to a `UIViewController`, there's also a handy way to do this:
 
 ```obj
 [SKSkinManager sharedSkinManager].automaticallyApplySkinForViews = YES;
@@ -109,7 +109,7 @@ Building skins
 --------------
 
 This is actually the fun part!  
-A skin could be created basically three ways:
+A skin could be created in three ways:
 
 1. Create a class that implements the `SKSkinDataSource` protocol.
 2. Create a bundle and provide your customizations in the bundle's Info.plist file.
@@ -121,7 +121,7 @@ You can build a new skin by creating a class that conforms to the `SKSkinDataSou
 
 For convenience, **SkinKit** provides two classes that already implement the `SKSkinDataSource` protocol:
 
-1. `SKSkin` loads values from the skin's bundle Info.plist file if available, otherwise returns `nil` for all attributes.
+1. `SKSkin` loads values from the skin's bundle Info.plist file if available, otherwise returns nil for all attributes.
 2. `SKDefaultSkin` is a subclass of `SKSkin` that makes useful assumptions, such as calculating the background color from the base tint color. 
 
 You should prefer using one of these two classes over creating a new that implements the protocol and only override the methods you need.
@@ -136,9 +136,9 @@ MyFancySkin.bundle/Contents/Info.plist (optional)
 MyFancySkin.bundle/Contents/Resources (place your image files here, optional)
 ```
 
-**Note**: If your skin class is named `MyFancySkin` the bundle name must be `MyFancySkin.bundle`. You don't even need a separate class for your skin, if you instantiate it like this: `id<SKSkinDataSource> skin = [[SKSkin alloc] initWithBundleName:@"MyFanceBundleOnlySkin"]` or `id<SKSkinDataSource> skin = [[SKDefaultSkin alloc] initWithBundleName:@"MyFanceBundleOnlySkin"]`.
+**Note**: If your skin class is named `MyFancySkin` the bundle name must be `MyFancySkin.bundle`. However, you don't even need a separate class for your skin, if you instantiate it like this: `id<SKSkinDataSource> skin = [[SKSkin alloc] initWithBundleName:@"MyFanceBundleOnlySkin"]` or `id<SKSkinDataSource> skin = [[SKDefaultSkin alloc] initWithBundleName:@"MyFanceBundleOnlySkin"]`.
 
-The `Info.plist` file can be used to provide custom appearance attributes (currently only color values are supported) by creating a dictionary named `SKSkinDataSource`:
+The `Info.plist` file can be used to specify custom appearance attributes (currently only color values are supported) by providing a dictionary named `SKSkinDataSource`:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -206,83 +206,83 @@ Skinnable UI elements
 
 Method        | Declared in | Meaning | SKSkin | SKDefaultSkin
 ------------- | ----------- | ------- | ------ | ------------- 
-`(UIColor *)baseTintColor` | `SKSkinDataSource` | The base tint color for this skin, used as a base for other attributes. | from `Info.plist`. | average color from navigation bar image
-`(UIColor *)accentTintColor` | `SKSkinDataSource` | The accent color (used for highlights etc.). | from `Info.plist`. | -
-`(UIColor *)backgroundColor` | `SKSkinDataSource` | The background color (or pattern image) for views. | from `Info.plist`. | `lighten(baseTintColor)`
-`(UIImage *)shadowTopImage` | `SKSkinDataSource` | The top shadow for bar elements. | `nil` | `imageNamed(shadowTopImageName)`
-`(UIImage *)shadowBottomImage` | `SKSkinDataSource` | The bottom shadow for bar elements. | `nil` | `imageNamed(shadowBottomImageName)`
-`(NSString *)shadowTopImageName` | `SKDefaultSkin` | Image name for top shadow. | - | "shadowTop"
-`(NSString *)shadowBottomImageName` | `SKDefaultSkin` | Image name for bottom shadow. | - | "shadowBottom"
-`(NSString *)stringFromControlState:(UIControlState)state` | `SKSkin` | String for control state. | "", "Highlighted", "Selected", "Disabled" | -
-`(NSString *)stringFromBarMetrics:(UIBarMetrics)barMetrics` | `SKSkin` | String for bar metrics. | "", "Landscape" | -
-`(NSString *)stringFromBarButtonItemStyle:(UIBarButtonItemStyle)style` | `SKSkin` | String for bar button item style. | "", "Done" | -
-`(NSString *)stringFromToolbarPosition:(UIToolbarPosition)position` | `SKSkin` | String for toolbar position. | "", "Top", "Bottom" | -
+(UIColor *)baseTintColor | `SKSkinDataSource` | The base tint color for this skin, used as a base for other attributes. | from `Info.plist`. | average color from navigation bar image
+(UIColor *)accentTintColor | `SKSkinDataSource` | The accent color (used for highlights etc.). | from `Info.plist`. | -
+(UIColor *)backgroundColor | `SKSkinDataSource` | The background color (or pattern image) for views. | from `Info.plist`. | lighten(baseTintColor)
+(UIImage *)shadowTopImage | `SKSkinDataSource` | The top shadow for bar elements. | nil | imageNamed(shadowTopImageName)
+(UIImage *)shadowBottomImage | `SKSkinDataSource` | The bottom shadow for bar elements. | nil | imageNamed(shadowBottomImageName)
+(NSString *)shadowTopImageName | `SKDefaultSkin` | Image name for top shadow. | - | "shadowTop"
+(NSString *)shadowBottomImageName | `SKDefaultSkin` | Image name for bottom shadow. | - | "shadowBottom"
+(NSString *)stringFromControlState:(UIControlState)state | `SKSkin` | String for control state. | "", "Highlighted", "Selected", "Disabled" | -
+(NSString *)stringFromBarMetrics:(UIBarMetrics)barMetrics | `SKSkin` | String for bar metrics. | "", "Landscape" | -
+(NSString *)stringFromBarButtonItemStyle:(UIBarButtonItemStyle)style | `SKSkin` | String for bar button item style. | "", "Done" | -
+(NSString *)stringFromToolbarPosition:(UIToolbarPosition)position | `SKSkin` | String for toolbar position. | "", "Top", "Bottom" | -
 
 ### UITabBar ###
 
 Method        | Declared in | Meaning | SKSkin | SKDefaultSkin
 ------------- | ----------- | ------- | ------ | ------------- 
-`(UIColor *)tabBarTintColor` | `SKSkinDataSource` | The tab bar tint color. Dark colors look better. | from `Info.plist`. | `darken(baseTintColor)`
-`(UIImage *)tabBarBackgroundImage` | `SKSkinDataSource` | The tab bar background image. | nil | `imageNamed(tabBarBackgroundImageName)`
-`(UIImage *)tabBarSelectionIndicatorImage` | `SKSkinDataSource` | An image that indicates the selected tab bar item. | nil | `imageNamed(tabBarSelectionIndicatorImageName)`
-`(UIColor *)tabBarSelectedImageTintColor` | `SKSkinDataSource` | The tint color of the selected tab bar item image. | from `Info.plist`. | `accentColor`
-`(NSString *)tabBarSelectionIndicatorImageName` | `SKDefaultSkin` | Image name for tab bar background. | - | "tabBarBackground"
-`(NSString *)tabBarSelectionIndicatorImageName` | `SKDefaultSkin` | Image name for selection indicator. | - | "tabBarSelectionIndicator"
+(UIColor *)tabBarTintColor | `SKSkinDataSource` | The tab bar tint color. Dark colors look better. | from `Info.plist`. | darken(baseTintColor)
+(UIImage *)tabBarBackgroundImage | `SKSkinDataSource` | The tab bar background image. | nil | imageNamed(tabBarBackgroundImageName)
+(UIImage *)tabBarSelectionIndicatorImage | `SKSkinDataSource` | An image that indicates the selected tab bar item. | nil | imageNamed(tabBarSelectionIndicatorImageName)
+(UIColor *)tabBarSelectedImageTintColor | `SKSkinDataSource` | The tint color of the selected tab bar item image. | from `Info.plist`. | accentColor
+(NSString *)tabBarSelectionIndicatorImageName | `SKDefaultSkin` | Image name for tab bar background. | - | "tabBarBackground"
+(NSString *)tabBarSelectionIndicatorImageName | `SKDefaultSkin` | Image name for selection indicator. | - | "tabBarSelectionIndicator"
 
 
 ### UINavigationBar ###
 
 Method        | Declared in | Meaning | SKSkin | SKDefaultSkin
 ------------- | ----------- | ------- | ------ | ------------- 
-`(UIColor *)navigationBarTintColor` | `SKSkinDataSource` | The navigation bar tint color. | from `Info.plist`. | `baseTintColor`
-`(UIImage *)navigationBarBackgroundImageForBarMetrics:(UIBarMetrics)barMetrics` | `SKSkinDataSource` | The navigation bar background image for given bar metrics. | nil | `imageNamed(navigationBarBackgroundImageName + str(barMetrics))`
-`(NSDictionary *)navigationBarTitleTextAttributes` | `SKSkinDataSource` | A dictionary containing text attributes. See [UITextAttributes](http://developer.apple.com/library/ios/documentation/uikit/reference/NSString_UIKit_Additions/Reference/Reference.html#//apple_ref/doc/uid/TP40006893-CH3-DontLinkElementID_3). | `nil` | -
-`(NSString *)navigationBarBackgroundImageName` | `SKDefaultSkin` | Image name for navigation bar background. | - | "navigationBarBackground"
+(UIColor *)navigationBarTintColor | `SKSkinDataSource` | The navigation bar tint color. | from `Info.plist`. | baseTintColor
+(UIImage *)navigationBarBackgroundImageForBarMetrics:(UIBarMetrics)barMetrics | `SKSkinDataSource` | The navigation bar background image for given bar metrics. | nil | imageNamed(navigationBarBackgroundImageName + str(barMetrics))
+(NSDictionary *)navigationBarTitleTextAttributes | `SKSkinDataSource` | A dictionary containing text attributes. See [UITextAttributes](http://developer.apple.com/library/ios/documentation/uikit/reference/NSString_UIKit_Additions/Reference/Reference.html#//apple_ref/doc/uid/TP40006893-CH3-DontLinkElementID_3). | nil | -
+(NSString *)navigationBarBackgroundImageName | `SKDefaultSkin` | Image name for navigation bar background. | - | "navigationBarBackground"
 
 
 ### UIToolbar ###
 
 Method        | Declared in | Meaning | SKSkin | SKDefaultSkin
 ------------- | ----------- | ------- | ------ | ------------- 
-`(UIColor *)toolbarTintColor` | `SKSkinDataSource` | The toolbar tint color. | from `Info.plist`. | `baseTintColor`
-`(UIImage *)toolbarBackgroundImageForToolbarPosition:(UIToolbarPosition)pos barMetrics:(UIBarMetrics)barMetrics` | `SKSkinDataSource` | The toolbar background image for given position and bar metrics. | nil | `imageNamed(toolbarBackgroundImageName + str(pos) + str(barMetrics))`
-`(NSString *)toolbarBackgroundImageName` | `SKDefaultSkin` | Image name for toolbar background. | - | "toolbarBackground"
+(UIColor *)toolbarTintColor | `SKSkinDataSource` | The toolbar tint color. | from `Info.plist`. | baseTintColor
+(UIImage *)toolbarBackgroundImageForToolbarPosition:(UIToolbarPosition)pos barMetrics:(UIBarMetrics)barMetrics | `SKSkinDataSource` | The toolbar background image for given position and bar metrics. | nil | imageNamed(toolbarBackgroundImageName + str(pos) + str(barMetrics))
+(NSString *)toolbarBackgroundImageName | `SKDefaultSkin` | Image name for toolbar background. | - | "toolbarBackground"
 
 
 ### UISearchBar ###
 
 Method        | Declared in | Meaning | SKSkin | SKDefaultSkin
 ------------- | ----------- | ------- | ------ | ------------- 
-`(UIColor *)searchBarTintColor` | `SKSkinDataSource` | The search bar tint color. | from `Info.plist`. | `baseTintColor`
-`(UIImage *)searchBarBackgroundImage` | `SKSkinDataSource` | The search bar background image. | nil | `imageNamed(searchBarBackgroundImageName)`
-`(NSString *)searchBarBackgroundImageName` | `SKDefaultSkin` | Image name for search bar background. | - | "searchBarBackground"
+(UIColor *)searchBarTintColor | `SKSkinDataSource` | The search bar tint color. | from `Info.plist`. | baseTintColor
+(UIImage *)searchBarBackgroundImage | `SKSkinDataSource` | The search bar background image. | nil | imageNamed(searchBarBackgroundImageName)
+(NSString *)searchBarBackgroundImageName | `SKDefaultSkin` | Image name for search bar background. | - | "searchBarBackground"
 
 
 ### UIBarButtonItem ###
 
 Method        | Declared in | Meaning | SKSkin | SKDefaultSkin
 ------------- | ----------- | ------- | ------ | ------------- 
-`(UIColor *)barButtonItemTintColor` | `SKSkinDataSource` | The bar button item tint color. | from `Info.plist`. | `baseTintColor`
-`(UIImage *)barButtonItemBackgroundImageForState:(UIControlState)state style:(UIBarButtonItemStyle)style barMetrics:(UIBarMetrics)barMetrics` | `SKSkinDataSource` | The bar button item background image for given control sate, button style and bar metrics. | nil | `imageNamed(barButtonItemBackgroundImageName + str(style) + str(state) + str(barMetrics))`
-`(UIImage *)backBarButtonItemBackgroundImageForState:(UIControlState)state barMetrics:(UIBarMetrics)barMetrics` | `SKSkinDataSource` | The back bar button item background image for given control sate and bar metrics. | nil | `imageNamed(backBarButtonItemBackgroundImageName + str(state) + str(barMetrics))`
-`(NSDictionary *)barButtonItemTitleTextAttributesForState:(UIControlState)state` | `SKSkinDataSource` | A dictionary containing text attributes for a given control state. See [UITextAttributes](http://developer.apple.com/library/ios/documentation/uikit/reference/NSString_UIKit_Additions/Reference/Reference.html#//apple_ref/doc/uid/TP40006893-CH3-DontLinkElementID_3). | `nil` | -
-`(NSString *)barButtonItemBackgroundImageName` | `SKDefaultSkin` | Image name for bar button item background. | - | "barButtonItemBackground"
-`(NSString *)backBarButtonItemBackgroundImageName` | `SKDefaultSkin` | Image name for back bar button item background. | - | "backBarButtonItemBackground"
+(UIColor *)barButtonItemTintColor | `SKSkinDataSource` | The bar button item tint color. | from `Info.plist`. | baseTintColor
+(UIImage *)barButtonItemBackgroundImageForState:(UIControlState)state style:(UIBarButtonItemStyle)style barMetrics:(UIBarMetrics)barMetrics | `SKSkinDataSource` | The bar button item background image for given control sate, button style and bar metrics. | nil | imageNamed(barButtonItemBackgroundImageName + str(style) + str(state) + str(barMetrics))
+(UIImage *)backBarButtonItemBackgroundImageForState:(UIControlState)state barMetrics:(UIBarMetrics)barMetrics | `SKSkinDataSource` | The back bar button item background image for given control sate and bar metrics. | nil | imageNamed(backBarButtonItemBackgroundImageName + str(state) + str(barMetrics))
+(NSDictionary *)barButtonItemTitleTextAttributesForState:(UIControlState)state | `SKSkinDataSource` | A dictionary containing text attributes for a given control state. See [UITextAttributes](http://developer.apple.com/library/ios/documentation/uikit/reference/NSString_UIKit_Additions/Reference/Reference.html#//apple_ref/doc/uid/TP40006893-CH3-DontLinkElementID_3). | nil | -
+(NSString *)barButtonItemBackgroundImageName | `SKDefaultSkin` | Image name for bar button item background. | - | "barButtonItemBackground"
+(NSString *)backBarButtonItemBackgroundImageName | `SKDefaultSkin` | Image name for back bar button item background. | - | "backBarButtonItemBackground"
 
 
 ### UITableView ###
 
 Method        | Declared in | Meaning | SKSkin | SKDefaultSkin
 ------------- | ----------- | ------- | ------ | ------------- 
-`(UIImage *)tableViewBackgroundImage` | `SKSkinDataSource` | The table view background image. | nil | `imageNamed(tableViewBackgroundImageName)`
-`(NSString *)tableViewBackgroundImageName` | `SKDefaultSkin` | Image name for table view background. | - | "tableViewBackground"
+(UIImage *)tableViewBackgroundImage | `SKSkinDataSource` | The table view background image. | nil | imageNamed(tableViewBackgroundImageName)
+(NSString *)tableViewBackgroundImageName | `SKDefaultSkin` | Image name for table view background. | - | "tableViewBackground"
 
 
 ### UIScrollView ###
 
 Method        | Declared in | Meaning | SKSkin | SKDefaultSkin
 ------------- | ----------- | ------- | ------ | ------------- 
-`(NSValue *)scrollViewContentInsets` | `SKSkinDataSource` | The scroll view content insets as `NSValue` wrapping a `UIEdgeInset` struct. | nil | -
+(NSValue *)scrollViewContentInsets | `SKSkinDataSource` | The scroll view content insets as `NSValue` wrapping a `UIEdgeInset` struct. | nil | -
 
 
 
@@ -292,9 +292,9 @@ Skinnable controls: `UISwitch`, `UIStepper`, `UISegmentedControl`, `UISlider`, `
 
 Method        | Declared in | Meaning | SKSkin | SKDefaultSkin
 ------------- | ----------- | ------- | ------ | ------------- 
-`(UIColor *)controlBaseTintColor` | `SKSkinDataSource` | The control base tint color. | from `Info.plist`. | `baseTintColor`
-`(UIColor *)controlAccentTintColor` | `SKSkinDataSource` | The control accent tint color. | from `Info.plist`. | `accentTintColor`
-`(UIColor *)controlThumbTintColor` | `SKSkinDataSource` | The control thumb tint color. | from `Info.plist`. | `baseControlTintColor`
+(UIColor *)controlBaseTintColor | `SKSkinDataSource` | The control base tint color. | from `Info.plist`. | baseTintColor
+(UIColor *)controlAccentTintColor | `SKSkinDataSource` | The control accent tint color. | from `Info.plist`. | accentTintColor
+(UIColor *)controlThumbTintColor | `SKSkinDataSource` | The control thumb tint color. | from `Info.plist`. | baseControlTintColor
 
 
 Planned features and improvements
@@ -303,18 +303,21 @@ Planned features and improvements
 - Shared skins.
 - Custom layout.
 - `UICollectionView` customization (appearance and layout). 
+- Skin generator companion app for Mac or iOS.
+- CSS files.
 
 
 Motivation
 ==========
 
-The **SkinKit** framework is the result of a seminar ([iOS Advanced Topics](http://wwwbruegge.in.tum.de/static/lehrstuhl_1/teaching/timeline-st12/411-advanced-topics-in-ios)) at the Technical University Munich in summer 2012. The challenge was to create an open-source-licensed iOS framework that builds as a static library.
+The **SkinKit** framework is the result of a seminar ([iOS Advanced Topics](http://wwwbruegge.in.tum.de/static/lehrstuhl_1/teaching/timeline-st12/411-advanced-topics-in-ios)) at the Technical University Munich in summer 2012. The challenge was to create an open-source-licensed iOS framework that builds as a static library.  
+// TODO: more information
 
 
 License
 =======
 
-**SkinKit** is MIT licensed:
+**SkinKit** is released under the MIT license:
 
 ```
 Copyright (c) <2012> <Dominique d'Argent>
