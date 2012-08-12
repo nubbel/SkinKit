@@ -162,7 +162,6 @@
 + (UIColor *)colorWithName:(NSString *)name {
     // trim and make lowercase
     name = [name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    name = [name lowercaseString];
     
     SEL selector = NSSelectorFromString([name stringByAppendingString:@"Color"]);
     id colorClass = [UIColor class];
