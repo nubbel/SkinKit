@@ -68,15 +68,15 @@
     
     // TODO: DRY!
     if ([components count] == 3) {
-        return [UIColor colorWithHue:[components[0] floatValue]
-                          saturation:[components[1] floatValue]
-                          brightness:[components[2] floatValue]
+        return [UIColor colorWithRed:[components[0] floatValue]
+                               green:[components[1] floatValue]
+                                blue:[components[2] floatValue]
                                alpha:1.0f];
     }
     else if ([components count] == 4) {
-        return [UIColor colorWithHue:[components[0] floatValue]
-                          saturation:[components[1] floatValue]
-                          brightness:[components[2] floatValue]
+        return [UIColor colorWithRed:[components[0] floatValue]
+                               green:[components[1] floatValue]
+                                blue:[components[2] floatValue]
                                alpha:[components[3] floatValue]];
     }
     
