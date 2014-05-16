@@ -1,3 +1,7 @@
+# Warning: dead project!
+This project is no longer maintained!
+
+
 Introduction
 ============
 
@@ -36,14 +40,6 @@ Using a workspace
 4. Drag the libSkinKit.a to your project's "Link Binary with Library" build phase.
 5. Set header search path to: "$(BUILT\_PRODUCTS\_DIR)", check "recursive".
 6. Add "Other linker flags": "-ObjC".
-
-// TODO: add detailed installation guide
-
-
-CocoaPods
----------
-
-As soon as iOS 6.0 is publicly released, I'll build a [CocoaPods](http://cocoapods.org) spec so that you can easily add **SkinKit** to project.
 
 
 Usage
